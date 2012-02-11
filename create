@@ -70,7 +70,7 @@
             <ul class="nav">
               <li><a href="browser">Browse</a></li>
               <li><a href="planner">Plan</a></li>
-              <li><a href="#">Create</a></li>
+              <li class="active"><a href="#">Create</a></li>
             </ul>
             <p class="navbar-text pull-right"><a href="#login">Log in</a></p>
           </div><!--/.nav-collapse -->
@@ -78,20 +78,57 @@
       </div>
     </div>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
+    <div class="container">
+      <div class="row">
         <div class="span2">
         </div>
-        <div class="span8">
-        <div class="hero-unit">
+        <div class="span8 offset2">
+        <div class="well">
         <form class="form-horizontal">
                 <fieldset>
-                  <legend>Create Event</legend>
+                  <legend>Create</legend>
+                   <div class="btn-toolbar" style="margin-bottom: 9px">
+                    <div class="btn-group">
+                      <a class="btn active btn-info" href="#">One-time event</a>
+                      <a class="btn btn-info" href="#">Recurring event</a>
+                      <a class="btn btn-info" href="#">Event Finder</a>
+                      <a class="btn btn-info" href="#">Interest Group</a>
+                    </div>
+                   </div>
+                  <div class="btn-toolbar" style="margin-bottom: 9px">
+                    <div class="btn-group">
+                      <a class="btn active btn-success" href="#">Private</a>
+                      <a class="btn btn-info" href="#">Friends</a>
+                      <a class="btn btn-primary" href="#">Friends+</a>
+                      <a class="btn btn-danger" href="#">Public</a>
+                    </div>
+                   </div>
                   <div class="control-group">
-                    <label class="control-label" for="input01">Text input</label>
+                    <label class="control-label" for="name">Event Name</label>
                     <div class="controls">
-                      <input type="text" class="input" id="input01">
-                      <p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>
+                      <input type="text" class="input" id="name">
+                        <span class="help-inline">Eg. "Pickup Bball game in Ithaca"</span>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="loc">Event Location</label>
+                    <div class="controls">
+                      <input type="text" class="input" id="loc">
+                        <span class="help-inline">Eg. "A bball court in Ithaca" or "Bball court @ East Heights Park"</span>
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="loc">Event Date</label>
+                    <div class="controls">
+                      <input type="text" class="input" id="loc" placeholder="MM/DD/YYYY">
+                        <span class="help-inline">For multi-day events use "MM/DD/YYYY-MM/DD/YYYY"</span>
+                    </div>
+                  </div>
+                    <div class="control-group">
+                    <label class="control-label" for="loc">Event Time</label>
+                    <div class="controls">
+                      <input type="text" class="input" id="loc">
+                        <span class="help-inline">Eg. "12pm-1pm" or "12:00pm" or any combination</span>
                     </div>
                   </div>
                   <div class="control-group">
