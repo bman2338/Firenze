@@ -1,0 +1,222 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
+<head>
+	
+<!--
+  jQuery library
+-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<!-- jrating -->
+	<script type="text/javascript" src="jrate/jquery/jRating.jquery.js"></script>
+	<!-- CSS file -->
+	<link rel="stylesheet" type="text/css" href="jrate/jquery/jRating.jquery.css" media="screen" />
+	<!-- jQuery files -->
+	
+
+<!--
+  my stylesheet
+-->
+<link rel="stylesheet" type="text/css" href="my-styles/triangles.css" />
+<link rel="stylesheet" type="text/css" href="my-styles/mystyle.css" />
+
+<!--
+  BS:http://twitter.github.com/bootstrap/
+-->
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+
+<!--
+  slider library
+-->
+<script type="text/javascript" src="lemmon/lemmon-slider.js"></script>
+
+<!--
+  bootstrap lib
+-->
+
+<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap-tooltip.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap-popover.js"></script>
+
+<!--
+  captify lib: dep on jQuery
+-->
+<script type="text/javascript" src="captify/captify.js"></script>
+<link rel="stylesheet" type="text/css" href="captify/sample.css" />
+
+<script>
+window.onload = function(){
+	
+
+
+	// slider 1
+	$( '#slider1' ).lemmonSlider();
+	
+	// slider 2
+	$( '#slider2' ).lemmonSlider();
+	
+	 // popover demo
+    $("[rel=popover]")
+      .popover(
+      {
+      	delay: {show:20,hide:300 }
+      }
+      
+      )
+      .click(function(e) {
+        e.preventDefault()
+      });
+      
+  	$("#example")
+      .popover()
+      .click(function(e) {
+        e.preventDefault()
+      });
+      
+  //Captify:text overlays
+$(document).ready(function(){
+	$('img.captify').captify({
+		// all of these options are... optional
+		// ---
+		// speed of the mouseover effect
+		speedOver: 'fast',
+		// speed of the mouseout effect
+		speedOut: 'normal',
+		// how long to delay the hiding of the caption after mouseout (ms)
+		hideDelay: 500,	
+		// 'fade', 'slide', 'always-on'
+		animation: 'always-on',		
+		// text/html to be placed at the beginning of every caption
+		prefix: '',		
+		// opacity of the caption on mouse over
+		opacity: '0.5',					
+		// the name of the CSS class to apply to the caption box
+		className: 'caption-bottom',	
+		// position of the caption (top or bottom)
+		position: 'bottom',
+		// caption span % of the image
+		spanWidth: '60%'
+	});
+});
+	
+	
+	
+	// simple jRating call
+	$("img").hover(
+	function()
+	{
+		$(".rating").jRating({
+		showRateInfo:false
+		});
+	
+	});
+	
+	
+		
+}
+</script>
+
+<style>
+			/* Necessary CSS */
+		.slider    { overflow:hidden; position:relative;  }
+		.slider ul { margin:0; padding:0; }
+		.slider li { float:left; margin:0 5px 0 0; list-style:none; }
+		/* IE6 issues */
+		.slider ul { width:100%; }
+
+</style>
+
+</head>
+<body>
+		
+	 <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Zeal</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Browse</a></li>
+              <li><a href="#about">Plan</a></li>
+              <li><a href="#contact">Tutorial</a></li>
+              
+            </ul>
+          </div>
+          <div class="navbar-collapse pull-right">
+          <div><a class="btn btn-small" href="#"><i class="icon-cog"></i> Settings</a></div>
+          </div>
+          <!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+  <div class="container">
+	
+	<!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>Browse</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi facilisis, nulla eu sodales scelerisque, lectus lacus blandit magna, nec pulvinar ante eros nec erat. Sed et vestibulum felis. Vestibulum ultrices orci neque, vel scelerisque ante. Donec vel nisi justo, sed egestas lacus. Donec elit tellus, consequat eget pulvinar nec, pellentesque quis arcu. Donec nulla mi, convallis at sollicitudin in, egestas vitae mi. Vestibulum nec dolor vitae magna elementum scelerisque sed quis leo.</p>
+        <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+      </div>
+  <h2> This is a Category Heading. </h2>
+	<div class="row">
+	
+    
+    	
+    
+    	<div class="arrow-container-left span1  controls">
+    	
+					<div href="#" class="prev-slide arrow-left"></div>
+			
+			</div>
+    	<div id="slider2" class="span12 slider">
+    
+    	
+			<ul>
+				
+				<li rel="popover" data-content="And here's some amazing content. It's very engaging. right? <b> Sailing </b> is sweet. <br/> <div class='popup-bottom-divider'></div></br>more text <b>4:30-6:30</b> </br></br> <b>Creator</b>: Bob Smith </br> <b>Who's Going:</b>  <a>Mike D</a>, <a>Alice M.</a>,<a>see more</a> </br> Rating for you: <div class='rating' id='8_2'></div>" data-original-title="A Sweet Sample Title <div class='subtext-block'><div class='subtext-left'> Subtexttttt	</div><div class='subtext-right'> Some subtext. Some more subtext.</div></div>"><img width="210" height="150" src="caro-images/bigboat.jpeg" class="captify" rel="capt1"  alt="" /></li>
+				<li rel="popover" data-content="And here's some amazing content. It's very engaging. right? <b> Sailing </b> is sweet. <br/><br/> <b>4:30-6:30</b> </br></br> <b>Creator</b>: Bob Smith </br> <b>Who's Going:</b> <a>Alice M.</a>, <a>Mike D</a>, <a>see more</a>" data-original-title="A Sweet Sample Title"><img width="210" height="150" src="caro-images/cs-go.jpeg" class="captify" rel="capt2" alt="" /></li>
+				<li><img width="210" height="150" src="caro-images/sailing.jpeg" class="captify" rel="capt3" alt="" /></li>
+				<li><img width="210" height="150" src="caro-images/karate.jpeg" class="captify" rel="capt4" alt="" /></li>
+				<li><img width="210" height="150" src="caro-images/ice-skating.jpeg"  class="captify" rel="capt5" alt="" /></li>
+				<li><img width="210" height="150" src="caro-images/karate.jpeg" class="captify" rel="capt6" alt="" /></li>
+				<li><img width="210" height="150" src="caro-images/mma.jpeg" class="captify" rel="capt7" alt="" /></li>
+				<li><img width="210" height="150" src="caro-images/bigboat.jpeg" class="captify" rel="capt8" alt="" /></li>
+				<li><img width="210" height="150" src="caro-images/bigboat.jpeg" alt="" /></li>
+				<li><img width="210" height="150" src="caro-images/bigboat.jpeg" alt="" /></li>
+				<li><img width="210" height="150" src="caro-images/bigboat.jpeg" alt="" /></li>
+				<li><img width="210" height="150" src="caro-images/bigboat.jpeg" alt="" /></li>
+				
+			</ul>
+			
+			</div>
+			<div class="arrow-container-right span1 controls">
+		
+					<div href="#" class="next-slide arrow-right"></div>
+			</div>
+		
+  </div>
+  
+  
+  
+</div>
+
+
+<!-- metadata about events -->
+		<div id="capt1"> 4:30 PM Sat Aug 12th<i class="icon-indent icon-white icon-ok"></i></div>
+  	<div id="capt2"> 4:30 PM Sat Aug 12th<i class="icon-indent icon-white icon-exclamation-sign"></div>
+    <div id="capt3"> 4:30 PM Sat Aug 12th<i class="icon-indent icon-white icon-remove"></div>
+    <div id="capt4"> 4:30 PM Sat Aug 12th</div>
+    <div id="capt5"> 4:30 PM Sat Aug 12th</div>
+    <div id="capt6"> 4:30 PM Sat Aug 12th</div>
+    <div id="capt7"> 4:30 PM Sat Aug 12th</div>
+    <div id="capt8"> 4:30 PM Sat Aug 12th</div>
+    
+</body>
+</html>
