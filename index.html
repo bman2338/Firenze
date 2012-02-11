@@ -18,6 +18,11 @@
       body {
         padding-bottom: 40px;
       }
+
+      .hero-unit {
+        padding: 20px;
+        padding-right: 30px;
+      }
       .sidebar-nav {
         padding: 9px 0;
       }
@@ -32,6 +37,25 @@
   </head>
 
   <body id="body">
+
+    <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : 'YOUR_APP_ID',
+            status     : true, 
+            cookie     : true,
+            xfbml      : true,
+            oauth      : true,
+          });
+        };
+        (function(d){
+           var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+           js = d.createElement('script'); js.id = id; js.async = true;
+           js.src = "//connect.facebook.net/en_US/all.js";
+           d.getElementsByTagName('head')[0].appendChild(js);
+         }(document));
+      </script>
 
     <div class="navbar navbar-top">
       <div class="navbar-inner">
@@ -63,7 +87,8 @@
         <div class="span9">
           <div class="hero-unit">
             <h1>Welcome to Zeal!</h1>
-            <p>Zeal takes the pain out of finding and scheduling activities. </p>
+            <h2>Zeal takes the pain out of finding and scheduling activities.</h2>
+            <p>Zeal is the first of a new breed of preference-driven websites that know you and do work for you while you aren't logged in to help simplify your life. Zeal learns about what kinds of activities you enjoy and finds other like-minded people for you.  </p>
             <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
           </div></div>
         <div class="span3">
@@ -71,6 +96,7 @@
                 <input type="text" class="span12" placeholder="Username">
                 <input type="password" class="span12" placeholder="Password">
                 <a class="btn btn-primary">Log in &raquo;</a>
+                <div class="fb-login-button">Login with Facebook</div>
             </div>
         </div>
           
