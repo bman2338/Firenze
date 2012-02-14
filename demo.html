@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Search Results</title>
+
+<link rel="stylesheet" type="text/css" href="flipgrid/styles.css" />
+
+<script type="text/javascript" src="jquery/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="flipgrid/jquery.flip.min.js"></script>
+
+<!-- flipgrid -->
+<script type="text/javascript" src="flipgrid/script.js"></script>
+
+<!-- jquery ui -->
+<link type="text/css" href="jquery/css/ui/ui.css" rel="stylesheet" />	
+<script type="text/javascript" src="jquery/js/min.js"></script>
+
+<!--
+  BS:http://twitter.github.com/bootstrap/
+-->
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap-tooltip.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap-popover.js"></script>
+
+
+<!--
+  captify lib: dep on jQuery
+-->
+<script type="text/javascript" src="captify/captify.js"></script>
+<link rel="stylesheet" type="text/css" href="captify/sample.css" />
+
+<script type="text/javascript">
+			$(function(){
+			
+			//datepicker
+			$("#datepicker").datepicker();
+			
+	 // popover demo
+    $("[rel=popover]")
+      .popover(
+      {
+      	delay: {show:20,hide:300 }
+      }
+      
+      )
+      .click(function(e) {
+        e.preventDefault()
+      });
+
+				      
+  //Captify:text overlays
+		$(document).ready(function(){
+			$('.captify').captify({
+				// all of these options are... optional
+				// ---
+				// speed of the mouseover effect
+				speedOver: 'fast',
+				// speed of the mouseout effect
+				speedOut: 'normal',
+				// how long to delay the hiding of the caption after mouseout (ms)
+				hideDelay: 500,	
+				// 'fade', 'slide', 'always-on'
+				animation: 'always-on',		
+				// text/html to be placed at the beginning of every caption
+				prefix: '',		
+				// opacity of the caption on mouse over
+				opacity: '0.7',					
+				// the name of the CSS class to apply to the caption box
+				className: 'caption-bottom',	
+				// position of the caption (top or bottom)
+				position: 'bottom',
+				// caption span % of the image
+				spanWidth: '86%'
+			});
+		});
+
+				
+				
+				// Slider
+				$('#slider, #slider2').slider({
+					min:1,
+					max:5,
+					step:1
+				});
+				});
+			
+	
+      
+		</script>
+
+
+</head>
+
+<body>
+ <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Zeal</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li ><a href="#">Browse</a></li>
+              <li><a href="#about">Plan</a></li>
+              <li><a href="#contact">Tutorial</a></li>
+              <li class="active"><a href="#contact">Search</a></li>
+              <li><input type="text" class="input-medium search-query" style="margin-top:5px; margin-left:90px; width:350px !important;" placeholder="Search for something to do" ></li>
+              <li><button type="submit" class="btn" style="margin-left:20px;">Search</button></li>
+            </ul>
+          </div>
+          <div class="navbar-collapse pull-right">
+          <div><a class="btn btn-small" href="#"><i class="icon-cog"></i> Settings</a></div>
+          </div>
+          <!--/.nav-collapse -->
+        </div>
+      </div>
+      
+    </div>
+ 
+<div class="container">
+ <div class="searchResults span12">
+ <h1> Search Results</h1>
+ </div>
+ 	<div class="span2">
+
+		<input type="hidden" name="trkid" value="437879">
+		<input type="hidden" name="allFacets" value="97,57,419,52,44,39,416,55,37,95,54,45,7455,3953,139,434,438,160,4068,5023,8262,445,76,140,4773,86,197">
+
+		<div class="filter-margin">
+		<span class="desc"><b>Filter by Category...</b></span>
+		
+		
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Thai</div>
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Italian</div>
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; French</div>
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Greek</div>
+		</div>
+		<div class="filter-margin">
+		<span class="desc"><b>Filter by Crew</b></span>
+		
+		
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Thai</div>
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Italian</div>
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; French</div>
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Greek</div>
+		</div>
+		<div class="filter-margin">
+		<span class="desc filter-margin"><b>Filter by Price</b></span>
+		
+		
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Thai</div>
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Italian</div>
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; French</div>
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Greek</div>
+		</div>
+	
+	<div class="filter-margin">
+	<b>My Preference Weight</b>
+	<div id="slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"></div>
+ 	</div>
+ 	
+ 	<div class="filter-margin">
+	<b>My Network's Preference</b>
+	<div id="slider2" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"></div>
+ 	</div>
+ 	
+ 	</div>
+	<div class="sponsorListHolder span9">
+			
+		
+        
+				<div class="sponsor" title="Click to flip" alt="caption text">
+					<div class="sponsorFlip">
+						<img rel="popover" data-content="And here's some amazing content. It's very engaging. right? <b> Sailing </b> is sweet. <br/> <div class='popup-bottom-divider'></div></br>more text <b>4:30-6:30</b> </br></br> <b>Creator</b>: Bob Smith </br> <b>Who's Going:</b>  <a>Mike D</a>, <a>Alice M.</a>,<a>see more</a> </br> Rating for you: <div class='rating' id='8_2'></div>" data-original-title="A Sweet Sample Title <div class='subtext-block'><div class='subtext-left'> Subtexttttt	</div><div class='subtext-right'> Some subtext. Some more subtext.</div></div>" class ="captify"	alt="Dinner for 2 at Mona Lisa's" src="img/dining/2.jpg" >
+						
+					
+					</div>
+					
+					<div class="sponsorData">
+						<div class="sponsorDescription">
+							Dinner for two at Mona Lisa's
+							</br>
+							</br>
+							
+							
+							<a data-toggle="modal" href="#myModal" > Add to schedule >></a>
+							<div id="myModal" class="modal hide fade" >
+							<div class="modal-header">
+								<a class="close" data-dismiss="modal">×</a>
+								<h3>Modal Heading</h3>
+							</div>
+							<div class="modal-body">
+								<h4>These friends would probably want to come along...</h4>
+								<div class="control-group">
+            <label class="control-label" for="multiSelect">Select Friends</label>
+            <div class="controls">
+              <select multiple="multiple" style="width:280px; height:200px;" id="multiSelect">
+                <option>Jake R</option>
+                <option>Ian C</option>
+                <option>Sandra B </option>
+                <option>Jennifer L</option>
+                <option>Whitney H</option>
+              </select>
+              
+              <div id="datepicker" style="float:right; margin-right:20px;"></div>
+              <div>Start Time </div>
+              <div>End Time </div>
+            	<a> Create an event with this activity attached... </a>
+            </div>
+          </div>
+							</div>
+							
+						</div>
+							</br>
+							<a> Bookmark >></a>
+							</br>
+							<a> Suggest >> </a>
+							
+						</div>
+					
+					</div>
+				</div>
+				
+				
+				<div class="sponsor" title="Click to flip">
+					<div class="sponsorFlip">
+						<img src="img/dining/1.jpg" height="" width="" alt="More about vimeo">
+					</div>
+					
+					<div class="sponsorData">
+						<div class="sponsorDescription">
+							A popular video-centric social networking site.
+						</div>
+						<div class="sponsorURL">
+							<a href="http://www.vimeo.com/">http://www.vimeo.com/</a>
+						</div>
+					</div>
+				</div>
+		
+				<div class="sponsor" title="Click to flip">
+					<div class="sponsorFlip">
+						<img src="img/dining/5.jpg" height="" width="">
+					</div>
+					
+					<div class="sponsorData">
+						<div class="sponsorDescription">
+							One of the top software companies of the world.
+						</div>
+						<div class="sponsorURL">
+							<a href="http://www.microsoft.com/">http://www.microsoft.com/</a>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="sponsor" title="Click to flip">
+					<div class="sponsorFlip">
+						<img src="img/dining/4.jpg" height="" width="" >
+					</div>
+					
+					<div class="sponsorData">
+						<div class="sponsorDescription">
+							A global multibillion electronics and entertainment company 
+						</div>
+						<div class="sponsorURL">
+							<a href="http://www.sony.com/">http://www.sony.com/</a>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="sponsor" title="Click to flip">
+					<div class="sponsorFlip">
+						<img src="img/dining/6.jpg" height="" width=""> 
+					</div>
+					
+					<div class="sponsorData">
+						<div class="sponsorDescription">
+							The company that redefined web search.
+						</div>
+						<div class="sponsorURL">
+							<a href="http://www.google.com/">http://www.google.com/</a>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="sponsor" title="Click to flip">
+					<div class="sponsorFlip">
+						<img src="img/dining/7.jpg" height="" width=""> 
+					</div>
+					
+					<div class="sponsorData">
+						<div class="sponsorDescription">
+							The biggest networking and communications technology manufacturer.
+						</div>
+						<div class="sponsorURL">
+							<a href="http://www.cisco.com/">http://www.cisco.com/</a>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="sponsor" title="Click to flip">
+					<div class="sponsorFlip">
+						<img src="img/dining/8.jpg" height="" width=""> 
+					</div>
+					
+					<div class="sponsorData">
+						<div class="sponsorDescription">
+							The most popular open source database engine.
+						</div>
+						<div class="sponsorURL">
+							<a href="http://www.mysql.com/">http://www.mysql.com/</a>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="sponsor" title="Click to flip">
+					<div class="sponsorFlip">
+						<img src="img/dining/9.jpg" height="" width=""> 
+					</div>
+					
+					<div class="sponsorData">
+						<div class="sponsorDescription">
+							Imaging and optical technology manufacturer.
+						</div>
+						<div class="sponsorURL">
+							<a href="http://www.canon.com/">http://www.canon.com/</a>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="sponsor" title="Click to flip">
+					<div class="sponsorFlip">
+						<img src="img/dining/10.jpg" height="" width=""> 
+					</div>
+					
+					<div class="sponsorData">
+						<div class="sponsorDescription">
+							One of the biggest computer manufacturers.
+						</div>
+						<div class="sponsorURL">
+							<a href="http://www.hp.com/">http://www.hp.com/</a>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="sponsor" title="Click to flip">
+					<div class="sponsorFlip">
+						<img src="img/arts/1.jpg" height="" width=""> 
+					</div>
+					
+					<div class="sponsorData">
+						<div class="sponsorDescription">
+							The biggest social network in the world.
+						</div>
+						<div class="sponsorURL">
+							<a href="http://www.facebook.com/">http://www.facebook.com/</a>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="sponsor" title="Click to flip">
+					<div class="sponsorFlip">
+						<img src="img/arts/2.jpg" height="" width=""> 
+					</div>
+					
+					<div class="sponsorData">
+						<div class="sponsorDescription">
+							The biggest online auction and shopping websites.
+						</div>
+						<div class="sponsorURL">
+							<a href="http://www.ebay.com/">http://www.ebay.com/</a>
+						</div>
+					</div>
+				</div>
+				
+			
+				
+        
+        
+    	<div class="clear"></div>
+    </div>
+    </div>
+</body>
+</html>

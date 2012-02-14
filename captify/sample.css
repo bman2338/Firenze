@@ -11,14 +11,17 @@
 	font-size: 9px;	
 	font-family: helvetica;	
 	cursor: default;
-	border: 0px solid #334143;
+	
 	background: #000000;
+	position:absolute !important;
 }
 .caption-top {
    border-width: 0px 0px 0px 0px;
 }
 .caption-bottom {
+	
    border-width: 1px 1px 0px 0px;
+   
 }
 .caption a, .caption a {
 	border: 0 none;

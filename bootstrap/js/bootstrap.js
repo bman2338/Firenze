@@ -663,7 +663,7 @@
 
     , show: function () {
         var that = this
-
+				$(".popover").hide();
         if (this.isShown) return
 
         $('body').addClass('modal-open')

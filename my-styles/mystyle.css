@@ -60,3 +60,11 @@ a
 	border-bottom:thin dotted #3D3D3D
 	
 }
+#articles
+{
+	margin-top:50px;
+}
+.article:hover
+{
+	background:#7BE1E3;
+}

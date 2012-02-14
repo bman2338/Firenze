@@ -23,6 +23,10 @@
 <link rel="stylesheet" type="text/css" href="my-styles/mystyle.css" />
 
 <!--
+   dragbox
+-->
+<link rel="stylesheet" type="text/css" href="my-styles/mystyle.css" />
+<!--
   BS:http://twitter.github.com/bootstrap/
 -->
 <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
@@ -103,7 +107,7 @@ $(document).ready(function(){
 	
 	
 	
-	// simple jRating call
+	// simple jRating call, fucking hack
 	$("img").hover(
 	function()
 	{
@@ -218,5 +222,5 @@ $(document).ready(function(){
     <div id="capt7"> 4:30 PM Sat Aug 12th</div>
     <div id="capt8"> 4:30 PM Sat Aug 12th</div>
     
-</body>
+	</body>
 </html>
