@@ -23,8 +23,36 @@
 <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap-tooltip.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap-popover.js"></script>
+<!-- tab slide -->
+<script src="http://tab-slide-out.googlecode.com/files/jquery.tabSlideOut.v1.3.js"></script>
 
+    <script type="text/javascript">
+    $(function(){
+        $('.slide-out-div').tabSlideOut({
+            tabHandle: '.handle',                     //class of the element that will become your tab
+            pathToTabImage: 'images/contact_tab.gif', //path to the image for the tab //Optionally can be set using css
+            imageHeight: '122px',                     //height of tab image           //Optionally can be set using css
+            imageWidth: '40px',                       //width of tab image            //Optionally can be set using css
+            tabLocation: 'left',                      //side of screen where tab lives, top, right, bottom, or left
+            speed: 300,                               //speed of animation
+            action: 'click',                          //options: 'click' or 'hover', action to trigger animation
+            topPos: '200px',                          //position from the top/ use if tabLocation is left or right
+            leftPos: '20px',                          //position from left/ use if tabLocation is bottom or top
+            fixedPosition: false                      //options: true makes it stick(fixed position) on scroll
+        });
 
+    });
+
+    </script>
+   <style type="text/css">
+      
+      .slide-out-div {
+          padding: 20px;
+          width: 250px;
+          background: #ccc;
+          border: 1px solid #29216d;
+      }      
+      </style>
 <!--
   captify lib: dep on jQuery
 -->
@@ -76,7 +104,10 @@
 			});
 		});
 
-				
+					//add friends onchange
+				$('#search-friends').change(function() {
+					$("#grouplist").append("<p><a>" + $(this).val() + "</a></p>");
+				});
 				
 				// Slider
 				$('#slider, #slider2').slider({
@@ -85,7 +116,16 @@
 					step:1
 				});
 				});
+				
+
+				$('.onchange').slider({
+					min:1,
+					max:5,
+					step:1
+				});
+				
 			
+				
 	
       
 		</script>
@@ -94,7 +134,8 @@
 </head>
 
 <body>
- <div class="navbar navbar-fixed-top">
+
+ <div class="navbar navbar-fixed-top" style="z-index:1">
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -121,13 +162,14 @@
       </div>
       
     </div>
- 
+
 <div class="container">
+ 				
  <div class="searchResults span12">
  <h1> Search Results</h1>
  </div>
  	<div class="span2">
-
+		
 		<input type="hidden" name="trkid" value="437879">
 		<input type="hidden" name="allFacets" value="97,57,419,52,44,39,416,55,37,95,54,45,7455,3953,139,434,438,160,4068,5023,8262,445,76,140,4773,86,197">
 
@@ -139,24 +181,27 @@
 		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Italian</div>
 		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; French</div>
 		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Greek</div>
+		<a>&nbsp; See More...</a>
+		
 		</div>
 		<div class="filter-margin">
 		<span class="desc"><b>Filter by Crew</b></span>
 		
 		
-		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Thai</div>
-		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Italian</div>
-		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; French</div>
-		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Greek</div>
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; A Crew</div>
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Work</div>
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Family</div>
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; B-Ball</div>
+		<a>&nbsp; See More...</a>
 		</div>
 		<div class="filter-margin">
 		<span class="desc filter-margin"><b>Filter by Price</b></span>
 		
 		
-		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Thai</div>
-		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Italian</div>
-		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; French</div>
-		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Greek</div>
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; $</div>
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; $$</div>
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; $$$</div>
+		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; $$$$</div>
 		</div>
 	
 	<div class="filter-margin">
@@ -170,15 +215,18 @@
  	</div>
  	
  	</div>
+ 	
+ 	<div class="span3"></div>
+ 	<div class="span9" style="font-size:20px; margin-top:10px; display:block; float:left;">Add an existing event</div>
 	<div class="sponsorListHolder span9">
+					
+		<h2 style="margin-top:100px; display:block; float:left;"></h2>
 			
 		
-        
+       
 				<div class="sponsor" title="Click to flip" alt="caption text">
 					<div class="sponsorFlip">
 						<img rel="popover" data-content="And here's some amazing content. It's very engaging. right? <b> Sailing </b> is sweet. <br/> <div class='popup-bottom-divider'></div></br>more text <b>4:30-6:30</b> </br></br> <b>Creator</b>: Bob Smith </br> <b>Who's Going:</b>  <a>Mike D</a>, <a>Alice M.</a>,<a>see more</a> </br> Rating for you: <div class='rating' id='8_2'></div>" data-original-title="A Sweet Sample Title <div class='subtext-block'><div class='subtext-left'> Subtexttttt	</div><div class='subtext-right'> Some subtext. Some more subtext.</div></div>" class ="captify"	alt="Dinner for 2 at Mona Lisa's" src="img/dining/2.jpg" >
-						
-					
 					</div>
 					
 					<div class="sponsorData">
@@ -292,7 +340,7 @@
 				
 				<div class="sponsor" title="Click to flip">
 					<div class="sponsorFlip">
-						<img src="img/dining/7.jpg" height="" width=""> 
+						<img src="img/dining/7.jpg" height="139" width="139"> 
 					</div>
 					
 					<div class="sponsorData">
@@ -368,27 +416,45 @@
 						</div>
 					</div>
 				</div>
-				
-				
-				<div class="sponsor" title="Click to flip">
+				<div class="span9" style="font-size:20px; margin-top:10px; margin-bottom:10px; margin-left:0px; display:block; float:left;">Or create an event at one of these places...</div>
+					<div class="sponsor" title="Click to flip">
 					<div class="sponsorFlip">
-						<img src="img/arts/2.jpg" height="" width=""> 
+						<img src="img/arts/1.jpg" height="" width=""> 
 					</div>
 					
 					<div class="sponsorData">
 						<div class="sponsorDescription">
-							The biggest online auction and shopping websites.
+							The biggest social network in the world.
 						</div>
 						<div class="sponsorURL">
-							<a href="http://www.ebay.com/">http://www.ebay.com/</a>
+							<a href="http://www.facebook.com/">http://www.facebook.com/</a>
 						</div>
 					</div>
 				</div>
-				
-			
-				
-        
-        
+						<div class="sponsor" title="Click to flip">
+					<div class="sponsorFlip">
+						<img src="img/arts/1.jpg" height="" width=""> 
+					</div>
+					
+					<div class="sponsorData">
+						<div class="sponsorDescription">
+							The biggest social network in the world.
+						</div>
+						<div class="sponsorURL">
+							<a href="http://www.facebook.com/">http://www.facebook.com/</a>
+						</div>
+					</div>
+				</div>
+
+					<div class="slide-out-div">
+            <a class="handle" href="http://link-for-non-js-users.html">Content</a>
+            <h3>Add friends to your group.</h3>
+            <p><input type="text" id="search-friends" class="input-medium" style="margin-top:5px; margin-left:20px; width:170px !important;" placeholder="Search for friends to add." ></p>
+            <p id="grouplist">Currently in group:</br>
+            <a>Matt D.</a> </br>
+            <a>Cameron D.</a></br>
+            <a>Josh F.</a> </p>
+        	</div>
     	<div class="clear"></div>
     </div>
     </div>

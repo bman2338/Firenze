@@ -29,7 +29,7 @@ div.arrow-down {
 
 /* create an arrow that points left */
 div.arrow-left {
-	margin-top:50px;
+	margin-top:42px;
   width:0px; 
   height:0px;
   border-bottom:30px solid transparent;  /* left arrow slant */
@@ -65,7 +65,7 @@ div.arrow-border-left {
 /* create an arrow that points right */
 div.arrow-right {
 	margin-left:10px;	
-	margin-top:50px;
+	margin-top:42px;
   width:0px; 
   height:0px; 
   border-bottom:30px solid transparent;  /* left arrow slant */
@@ -81,7 +81,7 @@ div.arrow-right {
 .arrow-container-right{
 z-index:11;
 margin-left:-60px !important;
-height:170px;
+height:140px;
 width:60px !important;
 
 }
@@ -90,8 +90,7 @@ width:60px !important;
 width:120px !important;
 position:absolute;
 z-index:11 !important;
-
-height:170px;
+height:140px;
 width:60px !important;
 
 }
@@ -99,7 +98,7 @@ width:60px !important;
 .arrow-container-left:hover,.arrow-container-right:hover {
 
 opacity:.6;
-height:170px;
+
 background:silver;
 
 
