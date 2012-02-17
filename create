@@ -20,7 +20,6 @@
 <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
 <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap-tooltip.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap-popover.js"></script>
     <style type="text/css">
       body {
         padding-bottom: 40px;
@@ -62,6 +61,21 @@
            js.src = "//connect.facebook.net/en_US/all.js";
            d.getElementsByTagName('head')[0].appendChild(js);
          }(document));
+      </script>
+      
+      <script>
+	
+	 // popover demo
+      $("[rel=popover]")
+      .popover(
+      {
+      	delay: {show:20,hide:300 }
+      }
+      
+      )
+      .click(function(e) {
+        e.preventDefault()
+      });
       </script>
 
  <div class="navbar navbar-top">
@@ -140,8 +154,8 @@
                       <a class="btn" href="#">Public</a>
                     </div>
                    </div>
-		  <a data-toggle="modal" class="btn" href="#myModal" >Invite Friends</a>
-		  <div id="myModal" class="modal hide fade" >
+            <a class="btn" data-toggle="modal" data-target="#myModal" href="#myModal" >Invite Friends</a>
+		  <div id="myModal" class="modal fade" >
 		    <div class="modal-header">
 			<a class="close" data-dismiss="modal">×</a>
 			  <h3>Modal Heading</h3>
@@ -198,6 +212,7 @@
     <script src="bootstrap/js/bootstrap-collapse.js"></script>
     <script src="bootstrap/js/bootstrap-carousel.js"></script>
     <script src="bootstrap/js/bootstrap-typeahead.js"></script>
+    <script src="bootstrap/js/bootstrap-modal.js"></script>
 
   </body>
 </html>
