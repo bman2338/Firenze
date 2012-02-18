@@ -1,0 +1,451 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
+<head>
+	
+<!--
+  jQuery library
+-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+	<!-- jrating -->
+	<script type="text/javascript" src="jrate/jquery/jRating.jquery.js"></script>
+	<!-- CSS file -->
+	<link rel="stylesheet" type="text/css" href="jrate/jquery/jRating.jquery.css" media="screen" />
+	<!-- jQuery files -->
+	
+
+<!--
+  my stylesheet
+-->
+<link rel="stylesheet" type="text/css" href="my-styles/triangles.css" />
+<link rel="stylesheet" type="text/css" href="my-styles/mystyle.css" />
+
+
+<!--
+  BS:http://twitter.github.com/bootstrap/
+-->
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+
+<!--
+  slider library
+-->
+<script type="text/javascript" src="lemmon/lemmon-slider.js"></script>
+
+<!--
+  bootstrap lib
+-->
+
+<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap-tooltip.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap-popover.js"></script>
+<!--
+   autocomplete baby
+-->
+<link rel="stylesheet" type="text/css" href="autocomplete/styles.css" />
+<script type="text/javascript" src="autocomplete/jquery.autocomplete.js"></script>
+<!--
+  captify lib: dep on jQuery
+-->
+<script type="text/javascript" src="captify/captify.js"></script>
+<link rel="stylesheet" type="text/css" href="captify/sample1.css" />
+<!-- tab slide -->
+<script src="http://tab-slide-out.googlecode.com/files/jquery.tabSlideOut.v1.3.js"></script>
+
+
+<script type="text/javascript" src="message/js/jquery.messagebar.js"></script>
+<link rel="stylesheet" type="text/css" href="message/skins/plain/skin.css" />
+<link rel="stylesheet" type="text/css" href="message/skins/ff/skin.css" />
+<link rel="stylesheet" type="text/css" href="message/skins/custom/skin.css" />
+<link rel="stylesheet" type="text/css" href="message/skins/vista/skin.css" />
+
+    <script type="text/javascript">
+    $(function(){
+        $('.slide-out-div').tabSlideOut({
+            tabHandle: '.handle',                     //class of the element that will become your tab
+            pathToTabImage: 'images/contact_tab.gif', //path to the image for the tab //Optionally can be set using css
+            imageHeight: '122px',                     //height of tab image           //Optionally can be set using css
+            imageWidth: '40px',                       //width of tab image            //Optionally can be set using css
+            tabLocation: 'left',                      //side of screen where tab lives, top, right, bottom, or left
+            speed: 300,                               //speed of animation
+            action: 'click',                          //options: 'click' or 'hover', action to trigger animation
+            topPos: '200px',                          //position from the top/ use if tabLocation is left or right
+            leftPos: '20px',                          //position from left/ use if tabLocation is bottom or top
+            fixedPosition: false                      //options: true makes it stick(fixed position) on scroll
+        });
+        
+
+
+    });
+
+    </script>
+   <style type="text/css">
+      
+      .slide-out-div {
+          padding: 20px;
+          width: 250px;
+          background: #ccc;
+          border: 1px solid #29216d;
+      }      
+      </style>
+      
+<script>
+window.onload = function(){
+	
+	
+
+	// slider 1
+	$( '#slider1' ).lemmonSlider();
+	
+	// slider 2
+	$( '#slider2,#slider3,#slider4' ).lemmonSlider();
+	
+	 // popover demo
+    $("[rel=popover]")
+      .popover(
+      {
+      	delay: {show:20,hide:300 }
+      }
+      
+      )
+      .click(function(e) {
+        e.preventDefault()
+      });
+      
+  	$("#example")
+      .popover()
+      .click(function(e) {
+        e.preventDefault()
+      });
+      
+  //Captify:text overlays
+$(document).ready(function(){
+	$('img.captify').captify({
+		// all of these options are... optional
+		// ---
+		// speed of the mouseover effect
+		speedOver: 'fast',
+		// speed of the mouseout effect
+		speedOut: 'normal',
+		// how long to delay the hiding of the caption after mouseout (ms)
+		hideDelay: 500,	
+		// 'fade', 'slide', 'always-on'
+		animation: 'always-on',		
+		// text/html to be placed at the beginning of every caption
+		prefix: '',		
+		// opacity of the caption on mouse over
+		opacity: '0.5',					
+		// the name of the CSS class to apply to the caption box
+		className: 'caption-bottom',	
+		// position of the caption (top or bottom)
+		position: 'bottom',
+		// caption span % of the image
+		spanWidth: '15%'
+	});
+});
+	
+	
+	 var a = $('#query').autocomplete({ 
+    serviceUrl:'autocomplete.ashx',
+    minChars:2, 
+    delimiter: /(,|;)\s*/, // regex or character
+    maxHeight:400,
+    width:300,
+    zIndex: 9999,
+    deferRequestBy: 0, //miliseconds
+    params: { country:'Yes' }, //aditional parameters
+    noCache: false, //default is false, set to true to disable caching
+    // callback function:
+    onSelect: function(value, data){ $("#grouplist").append("<br/><a>" + value + "</a>"); },
+    // local autosugest options:
+    lookup: ['Peter K.', 'John W.', 'Hans Z.', 'April A.', 'Lindsey L.','Brett L'] //local lookup values 
+  });
+  
+	// simple jRating call, fucking hack
+	$("img").hover(
+	function()
+	{
+		$(".rating").jRating({
+		showRateInfo:false
+		});
+		
+		 $('#boost').click(function(event){
+    
+        $('#message_bar').displayMessage({
+          message       : "You've boosted <b>Dinner for 2 at Mona Lisa's!</b> Click <a style='color:orange'><u>here</u></a> to manage your boosts.",
+          background    : '#111111',
+          color         : '#FFFFFF',
+          speed         : 'fast',
+          skin          : 'plain',
+          position      : 'absolute',
+          autohide      : false,
+        });
+     });
+	
+	});
+	
+	
+	
+  
+}
+</script>
+
+<style>
+			/* Necessary CSS */
+		.slider    { overflow:hidden; position:relative;  }
+		.slider ul { margin:0; padding:0; }
+		.slider li { float:left; margin:0 5px 0 0; list-style:none; }
+		/* IE6 issues */
+		.slider ul { width:100%; }
+		#message_bar {
+		opacity:.60;
+		margin-top:40px;
+		
+		}
+
+</style>
+
+</head>
+<body>
+		
+	 <div class="navbar navbar-fixed-top" style="z-index:1">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="index.html">Zeal</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Browse</a></li>
+              <li><a href="planner">Plan</a></li>
+              <li><a href="create">Create</a></li>
+              <li class=""><a href="#contact">Search</a></li>
+              <li><input type="text" class="input-medium search-query" style="margin-top:5px; margin-left:90px; width:350px !important;" placeholder="Search for something to do" ></li>
+	   <li><button class="btn" style="margin-left:20px;"><a href="demo.html">Search</a></button></li>
+           
+            </ul>
+          </div>
+          <div class="navbar-collapse pull-right">
+          <div><a class="btn btn-small" href="#"><i class="icon-cog"></i> Settings</a></div>
+          </div>
+          <!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+  <div class="container">
+	<div id="message_bar"><!-- content --></div>		
+	<br/>
+	<br/>
+	<br/>
+		<ul class="nav nav-tabs">
+          <li class="active"><a href="#A" data-toggle="tab">By Category</a></li>
+          <li><a href="#B" data-toggle="tab">By Crew</a></li>
+          <li><a href="#C" data-toggle="tab">By Something Else...</a></li>
+        	</ul>
+  <h2> Fine Dining </h2>
+	<div class="row">
+			<div class="span2">
+			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Thai</div>
+			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Italian</div>
+			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; French</div>
+			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Greek</div>
+			
+			</div>
+    	<div class="arrow-container-left controls" style="margin-left:180px; z-index:5 !important;">
+					<div href="#" class="prev-slide arrow-left"></div>
+			</div>
+    	<div id="slider2" class="span10 slider">
+			<ul>
+				
+				<li rel="popover" data-content="Do you desire the best in <b>Italian</b> cusine. Then look no further, Mona Lisa's is the place for you. Be sure to order from their signature wine collection. <br/> <div class='popup-bottom-divider'></div> <b>People interested in going:</b> <a>Meg R.</a> </br> <b>End's in:</b> 16h 32m </br> <b>Estimated Duration:</b> 3 hours</br> <b>Rating for you:</b> <div class='rating' id='8_2'></div> <div class='popup-bottom-divider'></div><div style='margin-top:10px; margin-left:15px; ' > <div class='btn-group' >
+  <a class='btn' href='#'> Add>>  </a>
+  <a class='btn' id='boost' href='#'> Boost>></a>
+  <a class='btn' href='#'>Suggest>></a>
+</div>
+" data-original-title="Dinner for 2 at Mona Lisa's <div class='subtext-block'><div class='subtext-left'> <a style='color:green;'>Deal</a> by <a>Mona Lisa Restaraunt</a>	</div><div class='subtext-right'> </div></div>"><img src="img/dining/1.jpg" height="139" width="139" class="captify" rel="capt1"  alt="" /></li>
+				<li rel="popover" data-content="And here's some amazing content. It's very engaging. right? <b> Sailing </b> is sweet. <br/><br/> <b>4:30-6:30</b> </br></br> <b>People interested in Mona Lisa's:</b> Meg R. </br> <b>Who's Going:</b> <a>Alice M.</a>, <a>Mike D</a>, <a>see more</a>" data-original-title="A Sweet Sample Title"><img src="img/dining/2.jpg" height="139" width="139" class="captify" rel="capt2" alt="" /></li>
+				<li><img src="img/dining/4.jpg" height="139" width="139" class="captify" rel="capt3" alt="" /></li>
+				<li><img src="img/dining/5.jpg" height="139" width="139" class="captify" rel="capt4" alt="" /></li>
+				<li><img src="img/dining/6.jpg" height="139" width="139"  class="captify" rel="capt5" alt="" /></li>
+				<li><img src="img/dining/7.jpg" height="139" width="139" class="captify" rel="capt6" alt="" /></li>
+				<li><img src="img/dining/8.jpg" height="139" width="139" class="captify" rel="capt7" alt="" /></li>
+				<li><img src="img/dining/9.jpg" height="139" width="139" class="captify" rel="capt8" alt="" /></li>
+				<li><img src="img/dining/10.jpg" height="139" width="139" class="captify" rel="capt9" alt="" /></li>
+				<li><img src="img/dining/11.jpg" height="139" width="139" class="captify" rel="capt10" alt="" /></li>
+			</ul>	
+			</div>
+			<div class="arrow-container-right span1 controls">
+		
+					<div href="#" class="next-slide arrow-right"></div>
+			</div>
+		
+  </div>
+  
+<h2> Arts </h2>
+	<div class="row">
+    	<div class="span2">
+    	<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Thai</div>
+			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Italian</div>
+			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; French</div>
+			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Greek</div>
+			
+    	</div>
+    	<div class="arrow-container-left controls" style="margin-left:180px; z-index:5 !important;">
+					<div href="#" class="prev-slide arrow-left"></div>
+			</div>
+    	<div id="slider2" class="span10 slider">
+			<ul>
+				
+				<li rel="popover" data-content="And here's some amazing content. It's very engaging. right? <b> Sailing </b> is sweet. <br/> <div class='popup-bottom-divider'></div></br>more text <b>4:30-6:30</b> </br></br> <b>Creator</b>: Bob Smith </br> <b>Who's Going:</b>  <a>Mike D</a>, <a>Alice M.</a>,<a>see more</a> </br> Rating for you: <div class='rating' id='8_2'></div>" data-original-title="A Sweet Sample Title <div class='subtext-block'><div class='subtext-left'> Subtexttttt	</div><div class='subtext-right'> Some subtext. Some more subtext.</div></div>"><img src="img/arts/1.jpg" height="139" width="139" class="captify" rel="capt11"  alt="" /></li>
+				<li rel="popover" data-content="And here's some amazing content. It's very engaging. right? <b> Sailing </b> is sweet. <br/><br/> <b>4:30-6:30</b> </br></br> <b>Creator</b>: Bob Smith </br> <b>Who's Going:</b> <a>Alice M.</a>, <a>Mike D</a>, <a>see more</a>" data-original-title="A Sweet Sample Title"><img src="img/arts/2.jpg" height="139" width="139" class="captify" rel="capt12" alt="" /></li>
+				<li><img src="img/arts/4.jpg" height="139" width="139" class="captify" rel="capt13" alt="" /></li>
+				<li><img src="img/arts/5.jpg" height="139" width="139" class="captify" rel="capt14" alt="" /></li>
+				<li><img src="img/arts/6.jpg" height="139" width="139"  class="captify" rel="capt15" alt="" /></li>
+				<li><img src="img/arts/7.jpg" height="139" width="139" class="captify" rel="capt16" alt="" /></li>
+				<li><img src="img/arts/8.jpg" height="139" width="139" class="captify" rel="capt17" alt="" /></li>
+				<li><img src="img/arts/9.jpg" height="139" width="139" class="captify" rel="capt18" alt="" /></li>
+				<li><img src="img/arts/10.jpg" height="139" width="139" class="captify" rel="capt19" alt="" /></li>
+				<li><img src="img/arts/11.jpg" height="139" width="139" class="captify" rel="capt20" alt="" /></li>
+			</ul>	
+			</div>
+			<div class="arrow-container-right span1 controls">
+		
+					<div href="#" class="next-slide arrow-right"></div>
+			</div>
+		
+  </div>
+  
+  <h2> Watch Sports </h2>
+	<div class="row">
+    	<div class="span2">
+    	<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Thai</div>
+			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Italian</div>
+			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; French</div>
+			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Greek</div>
+			
+    	</div>
+    	<div class="arrow-container-left controls" style="margin-left:180px; z-index:5 !important;">
+					<div href="#" class="prev-slide arrow-left"></div>
+			</div>
+    	<div id="slider3" class="span10 slider">
+			<ul>
+				
+				<li rel="popover" data-content="And here's some amazing content. It's very engaging. right? <b> Sailing </b> is sweet. <br/> <div class='popup-bottom-divider'></div></br>more text <b>4:30-6:30</b> </br></br> <b>Creator</b>: Bob Smith </br> <b>Who's Going:</b>  <a>Mike D</a>, <a>Alice M.</a>,<a>see more</a> </br> Rating for you: <div class='rating' id='8_2'></div>" data-original-title="A Sweet Sample Title <div class='subtext-block'><div class='subtext-left'> </div><div class='subtext-right'> Some subtext. Some more subtext.</div></div>"><img src="img/sports/1.jpg" height="139" width="139" class="captify" rel="capt21"  alt="" /></li>
+				<li rel="popover" data-content="And here's some amazing content. It's very engaging. right? <b> Sailing </b> is sweet. <br/><br/> <b>4:30-6:30</b> </br></br> <b>Creator</b>: Bob Smith </br> <b>Who's Going:</b> <a>Alice M.</a>, <a>Mike D</a>, <a>see more</a>" data-original-title="A Sweet Sample Title"><img src="img/sports/2.jpg" height="139" width="139" class="captify" rel="capt22" alt="" /></li>
+				<li><img src="img/sports/4.jpg" height="139" width="139" class="captify" rel="capt23" alt="" /></li>
+				<li><img src="img/sports/5.jpg" height="139" width="139" class="captify" rel="capt24" alt="" /></li>
+				<li><img src="img/sports/6.jpg" height="139" width="139"  class="captify" rel="capt25" alt="" /></li>
+				<li><img src="img/sports/7.jpg" height="139" width="139" class="captify" rel="capt26" alt="" /></li>
+				<li><img src="img/sports/8.png" height="139" width="139" class="captify" rel="capt27" alt="" /></li>
+				<li><img src="img/sports/9.png" height="139" width="139" class="captify" rel="capt28" alt="" /></li>
+				<li><img src="img/sports/10.jpg" height="139" width="139" class="captify" rel="capt29" alt="" /></li>
+				</ul>	
+			</div>
+			<div class="arrow-container-right span1 controls">
+		
+					<div href="#" class="next-slide arrow-right"></div>
+			</div>
+		
+  </div>
+  
+  <h2>Outdoors</h2>
+ 
+	<div class="row">
+			
+    	<div class="span2"></div>
+    	<div class="arrow-container-left controls" style="margin-left:180px; z-index:5 !important;">
+					<div href="#" class="prev-slide arrow-left"></div>
+			</div>
+		  
+    	<div id="slider3" class="span10 slider">
+			<ul>
+				
+				<li rel="popover" data-content="And here's some amazing content. It's very engaging. right? <b> Sailing </b> is sweet. <br/> <div class='popup-bottom-divider'></div></br>more text <b>4:30-6:30</b> </br></br> <b>Creator</b>: Bob Smith </br> <b>Who's Going:</b>  <a>Mike D</a>, <a>Alice M.</a>,<a>see more</a> </br> Rating for you: <div class='rating' id='8_2'></div>" data-original-title="A Sweet Sample Title <div class='subtext-block'><div class='subtext-left'> Subtexttttt	</div><div class='subtext-right'> Some subtext. Some more subtext.</div></div>"><img src="img/outdoors/1.jpg" height="139" width="139" class="captify" rel="capt31"  alt="" /></li>
+				<li rel="popover" data-content="And here's some amazing content. It's very engaging. right? <b> Sailing </b> is sweet. <br/><br/> <b>4:30-6:30</b> </br></br> <b>Creator</b>: Bob Smith </br> <b>Who's Going:</b> <a>Alice M.</a>, <a>Mike D</a>, <a>see more</a>" data-original-title="A Sweet Sample Title"><img src="img/outdoors/2.jpg" height="139" width="139" class="captify" rel="capt32" alt="" /></li>
+				<li><img src="img/outdoors/4.jpg" height="139" width="139" class="captify" rel="capt33" alt="" /></li>
+				<li><img src="img/outdoors/5.jpg" height="139" width="139" class="captify" rel="capt34" alt="" /></li>
+				<li><img src="img/outdoors/6.jpg" height="139" width="139"  class="captify" rel="capt35" alt="" /></li>
+				<li><img src="img/outdoors/7.jpg" height="139" width="139" class="captify" rel="capt36" alt="" /></li>
+				<li><img src="img/outdoors/8.jpg" height="139" width="139" class="captify" rel="capt37" alt="" /></li>
+				<li><img src="img/outdoors/9.jpg" height="139" width="139" class="captify" rel="capt38" alt="" /></li>
+				<li><img src="img/outdoors/10.jpg" height="139" width="139" class="captify" rel="capt39" alt="" /></li>
+				</ul>	
+			</div>
+			<div class="arrow-container-right span1 controls">
+		
+					<div href="#" class="next-slide arrow-right"></div>
+			</div>
+		
+  </div>
+  
+  
+  
+  
+  
+</div>
+
+
+<!-- metadata about events -->
+		<div id="capt1"> Dinner for 2 at Mona Lisa's</div>
+  	<div id="capt2"> Wine and Desert Tasting</div>
+    <div id="capt3"> Burrito Blowout</div>
+    <div id="capt4"> Sample Title </div>
+    <div id="capt5">  Sample Title</div>
+    <div id="capt6">  Sample Title</div>
+    <div id="capt7">  Sample Title</div>
+    <div id="capt8">  Sample Title</div>
+    <div id="capt9">  Sample Title</div>
+    <div id="capt10">  Sample Title</div>
+    
+		<div id="capt11">  Sample Title<i class="icon-indent icon-white icon-ok"></i></div>
+  	<div id="capt12">  Sample Title<i class="icon-indent icon-white icon-exclamation-sign"></div>
+    <div id="capt13">  Sample Title<i class="icon-indent icon-white icon-remove"></div>
+    <div id="capt14">  Sample Title</div>
+    <div id="capt15">  Sample Title</div>
+    <div id="capt16">  Sample Title</div>
+    <div id="capt17">  Sample Title</div>
+    <div id="capt18">  Sample Title</div>
+    <div id="capt19">  Sample Title</div>
+    <div id="capt20">  Sample Title</div>
+    
+    <!-- metadata about events -->
+		<div id="capt21">  Sample Title<i class="icon-indent icon-white icon-ok"></i></div>
+  	<div id="capt22">  Sample Title<i class="icon-indent icon-white icon-exclamation-sign"></div>
+    <div id="capt23">  Sample Title<i class="icon-indent icon-white icon-remove"></div>
+    <div id="capt24">  Sample Title</div>
+    <div id="capt25">  Sample Title</div>
+    <div id="capt26">  Sample Title</div>
+    <div id="capt27">  Sample Title</div>
+    <div id="capt28">  Sample Title</div>
+    <div id="capt29">  Sample Title</div>
+    <div id="capt30">  Sample Title</div>
+    
+		<div id="capt31">  Sample Title<i class="icon-indent icon-white icon-ok"></i></div>
+  	<div id="capt32">  Sample Title<i class="icon-indent icon-white icon-exclamation-sign"></div>
+    <div id="capt33">  Sample Title<i class="icon-indent icon-white icon-remove"></div>
+    <div id="capt34">  Sample Title</div>
+    <div id="capt35">  Sample Title</div>
+    <div id="capt36">  Sample Title</div>
+    <div id="capt37">  Sample Title</div>
+    <div id="capt38">  Sample Title</div>
+    <div id="capt39">  Sample Title</div>
+    <div id="capt40">  Sample Title</div>
+    
+    	<div class="slide-out-div"  style="z-index: 99 !important; position: fixed !important;">
+            <a class="handle" href="http://link-for-non-js-users.html">Content</a>
+            <h3>Add friends to your group.</h3>
+            <p><input type="text" id="query" style="margin-top:5px; margin-left:20px;  width:170px !important;" placeholder="Search for friends to add."></p>
+            <p id="grouplist">Currently in group:</br>
+            <a>Matt D.</a> </br>
+            <a>Cameron D.</a></br>
+            <a>Josh F.</a> </p>
+			</div>
+    
+    
+	</body>
+</html>

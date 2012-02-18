@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Add Zeal to your social life</title>
+    <meta name="Zeal takes activities to the next level." content="">
+    <meta name="Andrew Francis" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="my-styles/andrewstyle.css" rel="stylesheet">
+
+<!--
+  BS:http://twitter.github.com/bootstrap/
+-->
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap-tooltip.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap-popover.js"></script>
+    <style type="text/css">
+      body {
+        padding-bottom: 40px;
+      }
+
+      .hero-unit {
+        padding: 20px;
+        padding-right: 30px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+
+  <body id="createbody">
+
+    <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : 'YOUR_APP_ID',
+            status     : true, 
+            cookie     : true,
+            xfbml      : true,
+            oauth      : true,
+          });
+        };
+        (function(d){
+           var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+           js = d.createElement('script'); js.id = id; js.async = true;
+           js.src = "//connect.facebook.net/en_US/all.js";
+           d.getElementsByTagName('head')[0].appendChild(js);
+         }(document));
+      </script>
+
+ <div class="navbar navbar-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="index.html">Zeal</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li ><a href="browser">Browse</a></li>
+              <li><a href="planner">Plan</a></li>
+              <li><a href="create">Create</a></li>
+              <li><input type="text" class="input-medium search-query" style="margin-top:5px; margin-left:90px; width:350px !important;" placeholder="Search for something to do" ></li>
+	      <li><button class="btn" style="margin-left:20px;"><a href="demo.html">Search</a></button></li>
+            </ul>
+          </div>
+          <div class="navbar-collapse pull-right">
+          <div><a class="btn btn-small" href="#"><i class="icon-cog"></i> Settings</a></div>
+          </div>
+          <!--/.nav-collapse -->
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="span3">
+       	      <div class="well">
+		<center>
+		<img src="img/Sports/2.jpg"><br>
+		<b>When:</b> Sunday Feb 19 - 3pm
+		<b>Where:</b> Eastern Hgts. Park
+                <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Attending</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Andrew F</td>
+                      </tr>
+                      <tr>
+                        <td>Ashley P</td>
+                      </tr>
+                      
+                      <tr>
+                        <td>Ven S</td>
+                      </tr>
+                      <tr>
+                        <td>Chris B</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Maybe</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Andrew F</td>
+                      </tr>
+                      <tr>
+                        <td>Ashley P</td>
+                      </tr>
+                      
+                      <tr>
+                        <td>Ven S</td>
+                      </tr>
+                      <tr>
+                        <td>Chris B</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Invited</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Andrew F</td>
+                      </tr>
+                      <tr>
+                        <td>Ashley P</td>
+                      </tr>
+                      
+                      <tr>
+                        <td>Ven S</td>
+                      </tr>
+                      <tr>
+                        <td>Chris B</td>
+                      </tr>
+                    </tbody>
+                  </table>
+	  </center>
+            </div>
+    	    </div>
+            <div class="span9">
+		<div class="well">
+                <h1>Pickup Basketball Game</h1>
+		Ithaca, NY - Public Event
+		<hr>
+		<h3>Discuss</h3>
+		<form class="well form-inline">
+		<input type="text" class="input-medium" style="margin-top:5px; margin-left:90px; width:350px !important;" placeholder="Discuss the Pickup Basketball Game">
+		<button type="submit" class="btn btn-primary">Post</button>
+		<br>
+		<h3>Andrew F</h3>
+		</form>
+	</div>
+            </div>
+        </div>
+	<div class="row">
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+  
+
+  </body>
+</html>
