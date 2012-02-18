@@ -57,38 +57,43 @@
          }(document));
       </script>
 
-    <div class="navbar navbar-top">
+     <div class="navbar navbar-top">
       <div class="navbar-inner">
-        <div class="container-fluid">
+        <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Zeal</a>
+          <a class="brand" href="index.html">Zeal</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li><a href="browser">Browse</a></li>
+              <li ><a href="browser">Browse</a></li>
               <li><a href="planner">Plan</a></li>
               <li><a href="create">Create</a></li>
+              <li><input type="text" class="input-medium search-query" style="margin-top:5px; margin-left:90px; width:350px !important;" placeholder="Search for something to do" ></li>
+	      <li><button class="btn" style="margin-left:20px;"><a href="demo.html">Search</a></button></li>
             </ul>
-            <p class="navbar-text pull-right"><a href="#login">Log in</a></p>
-          </div><!--/.nav-collapse -->
+          </div>
+          <div class="navbar-collapse pull-right">
+          <div><a class="btn btn-small" href="#"><i class="icon-cog"></i> Settings</a></div>
+          </div>
+          <!--/.nav-collapse -->
         </div>
       </div>
+      
     </div>
-
     <div class="container-fluid">
       <div class="row-fluid">
         <!--
         <div class="span3">
           <p>Upcoming Activities</p>
-        </div><!--/span-->
+	  </div><!--/span-->-->
         <div class="span9">
           <div class="hero-unit">
             <h1>Welcome to Zeal!</h1>
-            <h2>Zeal takes the pain out of finding and scheduling activities.</h2>
-            <p>Zeal is the first of a new breed of preference-driven websites that know you and do work for you while you aren't logged in to help simplify your life. Zeal learns about what kinds of activities you enjoy and finds other like-minded people for you.  </p>
+	    <h2>Your Social Fulfillment Engine</h2>
+            <p>Zeal is the first of a new breed of preference-driven websites that know you and do work for you while you aren't logged in to help simplify your life. Zeal learns about what kinds of activities you enjoy and schedules events with other like-minded people for you to attend in your free time.  </p>
             <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
           </div>
         </div>
@@ -97,7 +102,7 @@
                 <input type="text" class="span12" placeholder="Username">
                 <input type="password" class="span12" placeholder="Password">
                 <a class="btn btn-primary">Log in &raquo;</a>
-                <div class="fb-login-button">Login with Facebook</div>
+		<a href="#">Sign Up!</a>
             </div>
         </div>
           

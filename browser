@@ -217,15 +217,14 @@ $(document).ready(function(){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Zeal</a>
+          <a class="brand" href="index.html">Zeal</a>
           <div class="nav-collapse">
             <ul class="nav">
               <li class="active"><a href="#">Browse</a></li>
-              <li><a href="#about">Plan</a></li>
-              <li><a href="#contact">Tutorial</a></li>
-              <li class=""><a href="#contact">Search</a></li>
+              <li><a href="planner">Plan</a></li>
+              <li><a href="create">Create</a></li>
               <li><input type="text" class="input-medium search-query" style="margin-top:5px; margin-left:90px; width:350px !important;" placeholder="Search for something to do" ></li>
-              <li><button type="submit" class="btn" style="margin-left:20px;">Search</button></li>
+	   <li><button class="btn" style="margin-left:20px;"><a href="demo.html">Search</a></button></li>
            
             </ul>
           </div>
