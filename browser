@@ -53,6 +53,13 @@
 <!-- tab slide -->
 <script src="http://tab-slide-out.googlecode.com/files/jquery.tabSlideOut.v1.3.js"></script>
 
+
+<script type="text/javascript" src="message/js/jquery.messagebar.js"></script>
+<link rel="stylesheet" type="text/css" href="message/skins/plain/skin.css" />
+<link rel="stylesheet" type="text/css" href="message/skins/ff/skin.css" />
+<link rel="stylesheet" type="text/css" href="message/skins/custom/skin.css" />
+<link rel="stylesheet" type="text/css" href="message/skins/vista/skin.css" />
+
     <script type="text/javascript">
     $(function(){
         $('.slide-out-div').tabSlideOut({
@@ -67,6 +74,8 @@
             leftPos: '20px',                          //position from left/ use if tabLocation is bottom or top
             fixedPosition: false                      //options: true makes it stick(fixed position) on scroll
         });
+        
+
 
     });
 
@@ -160,6 +169,19 @@ $(document).ready(function(){
 		$(".rating").jRating({
 		showRateInfo:false
 		});
+		
+		 $('#boost').click(function(event){
+    
+        $('#message_bar').displayMessage({
+          message       : "You've boosted <b>Dinner for 2 at Mona Lisa's!</b> Click <a style='color:orange'><u>here</u></a> to manage your boosts.",
+          background    : '#111111',
+          color         : '#FFFFFF',
+          speed         : 'fast',
+          skin          : 'plain',
+          position      : 'absolute',
+          autohide      : false,
+        });
+     });
 	
 	});
 	
@@ -176,6 +198,11 @@ $(document).ready(function(){
 		.slider li { float:left; margin:0 5px 0 0; list-style:none; }
 		/* IE6 issues */
 		.slider ul { width:100%; }
+		#message_bar {
+		opacity:.60;
+		margin-top:40px;
+		
+		}
 
 </style>
 
@@ -211,7 +238,7 @@ $(document).ready(function(){
     </div>
 
   <div class="container">
-				
+	<div id="message_bar"><!-- content --></div>		
 	<br/>
 	<br/>
 	<br/>
@@ -237,7 +264,7 @@ $(document).ready(function(){
 				
 				<li rel="popover" data-content="Do you desire the best in <b>Italian</b> cusine. Then look no further, Mona Lisa's is the place for you. Be sure to order from their signature wine collection. <br/> <div class='popup-bottom-divider'></div> <b>People interested in going:</b> <a>Meg R.</a> </br> <b>End's in:</b> 16h 32m </br> <b>Estimated Duration:</b> 3 hours</br> <b>Rating for you:</b> <div class='rating' id='8_2'></div> <div class='popup-bottom-divider'></div><div style='margin-top:10px; margin-left:15px; ' > <div class='btn-group' >
   <a class='btn' href='#'> Add>>  </a>
-  <a class='btn' href='#'> Boost>></a>
+  <a class='btn' id='boost' href='#'> Boost>></a>
   <a class='btn' href='#'>Suggest>></a>
 </div>
 " data-original-title="Dinner for 2 at Mona Lisa's <div class='subtext-block'><div class='subtext-left'> <a style='color:green;'>Deal</a> by <a>Mona Lisa Restaraunt</a>	</div><div class='subtext-right'> </div></div>"><img src="img/dining/1.jpg" height="139" width="139" class="captify" rel="capt1"  alt="" /></li>

@@ -21,6 +21,14 @@
 <!--
   BS:http://twitter.github.com/bootstrap/
 -->
+
+<!-- stylesheets -->
+<link rel="stylesheet" href="http://www.andreyvoev.com/wp-content/themes/newscast/js/prettyPhoto/css/prettyPhoto.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="http://www.andreyvoev.com/wp-content/themes/newscast/style.css" type="text/css" media="screen" />
+
+<link rel="stylesheet" href="http://www.andreyvoev.com/wp-content/themes/newscast/css/style4.css" type="text/css" media="screen"/>
+
+<script type="text/javascript" src="bootstrap/js/jquery.messagebar.js"></script>
 <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
 <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap-tooltip.js"></script>
@@ -71,6 +79,21 @@
       
       <script>
 	
+		$(document).ready(function() {
+
+      $('.modern').click(function(event){
+        event.preventDefault();
+        $('#message_bar').displayMessage({
+          message       : 'Error message',
+          background    : '#111111',
+          color         : '#FFFFFF',
+          speed         : 'fast',
+          skin          : 'plain',
+          position      : fixed,
+          autohide      : false,
+      	  });
+    	 });
+		});
 	
 	
 	 // popover demo
@@ -112,7 +135,7 @@
       </div>
       
     </div>
-
+		<div id="message_bar"><!-- content --></div>
     <div class="container">
       <div class="row">
         <div class="span2">
