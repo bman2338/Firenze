@@ -5,6 +5,10 @@
     <title>Add Zeal to your social life</title>
     <meta name="Zeal takes activities to the next level." content="">
     <meta name="Andrew Francis" content="">
+<!--
+  jQuery library
+-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -17,9 +21,19 @@
 <!--
   BS:http://twitter.github.com/bootstrap/
 -->
+
+<!-- stylesheets -->
+<link rel="stylesheet" href="http://www.andreyvoev.com/wp-content/themes/newscast/js/prettyPhoto/css/prettyPhoto.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="http://www.andreyvoev.com/wp-content/themes/newscast/style.css" type="text/css" media="screen" />
+
+<link rel="stylesheet" href="http://www.andreyvoev.com/wp-content/themes/newscast/css/style4.css" type="text/css" media="screen"/>
+
+<script type="text/javascript" src="bootstrap/js/jquery.messagebar.js"></script>
 <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
 <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap-tooltip.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap-popover.js"></script>
+
     <style type="text/css">
       body {
         padding-bottom: 40px;
@@ -65,6 +79,23 @@
       
       <script>
 	
+		$(document).ready(function() {
+
+      $('.modern').click(function(event){
+        event.preventDefault();
+        $('#message_bar').displayMessage({
+          message       : 'Error message',
+          background    : '#111111',
+          color         : '#FFFFFF',
+          speed         : 'fast',
+          skin          : 'plain',
+          position      : fixed,
+          autohide      : false,
+      	  });
+    	 });
+		});
+	
+	
 	 // popover demo
       $("[rel=popover]")
       .popover(
@@ -104,7 +135,7 @@
       </div>
       
     </div>
-
+		<div id="message_bar"><!-- content --></div>
     <div class="container">
       <div class="row">
         <div class="span2">
@@ -154,7 +185,7 @@
                       <a class="btn" href="#">Public</a>
                     </div>
                    </div>
-            <a class="btn" data-toggle="modal" data-target="#myModal" href="#myModal" >Invite Friends</a>
+            <a class="btn" id="modalpopup" data-toggle="modal" data-target="#myModal" href="#myModal" >Invite Friends</a>
 		  <div id="myModal" class="modal fade" >
 		    <div class="modal-header">
 			<a class="close" data-dismiss="modal">×</a>
@@ -200,19 +231,10 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="bootstrap/js/jquery.js"></script>
-    <script src="bootstrap/js/bootstrap-transition.js"></script>
-    <script src="bootstrap/js/bootstrap-alert.js"></script>
-    <script src="bootstrap/js/bootstrap-dropdown.js"></script>
-    <script src="bootstrap/js/bootstrap-scrollspy.js"></script>
-    <script src="bootstrap/js/bootstrap-tab.js"></script>
-    <script src="bootstrap/js/bootstrap-tooltip.js"></script>
-    <script src="bootstrap/js/bootstrap-popover.js"></script>
-    <script src="bootstrap/js/bootstrap-button.js"></script>
-    <script src="bootstrap/js/bootstrap-collapse.js"></script>
-    <script src="bootstrap/js/bootstrap-carousel.js"></script>
-    <script src="bootstrap/js/bootstrap-typeahead.js"></script>
-    <script src="bootstrap/js/bootstrap-modal.js"></script>
+  <!--
+  bootstrap lib
+-->
+
 
   </body>
 </html>

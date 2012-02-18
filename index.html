@@ -1,127 +1,166 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Add Zeal to your social life</title>
-    <meta name="Zeal takes activities to the next level." content="">
-    <meta name="Andrew Francis" content="">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
+<head>
+<title>MessageBar - Show your messages the right way.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.messagebar.js"></script>
+<link rel="stylesheet" type="text/css" href="skins/plain/skin.css" />
+<link rel="stylesheet" type="text/css" href="skins/ff/skin.css" />
+<link rel="stylesheet" type="text/css" href="skins/custom/skin.css" />
+<link rel="stylesheet" type="text/css" href="skins/vista/skin.css" />
+</head>
+<body>
+<div id="message_bar"><!-- The content will be dynamically loaded in here --></div>
+<div id="result"><!-- The content will be dynamically loaded in here --></div>
+<div id="header">
+<h1>Message Bar</h1>
+<h2>jQuery Plugin</h2>
+</div>
+<div class="content round">
+  <h3>Description:</h3>
+  <p>This is a jQuery plugin, showing a message bar at the top of a the page. It can be used to show validation errors, success messages and overall info.</p>
+  <p>Skins Demo:</p>
+  <p>
+    <a class="ff" href="#">FF</a> |
+    <a class="custom" href="#">Custom</a> |
+    <a class="vista" href="#">Vista</a> |
+    <a class="black" href="#">Black</a>
+  </p>
+  <p>Positions Demo:</p>
+  <p>
+    <a class="relative" href="#">Relative</a> |
+    <a class="fixed" href="#">Fixed</a> |
+    <a class="absolute" href="#">Absolute</a>
+  </p>
+</div>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<div class="content round">
+<h3>Usage:</h3>
+<p>
+<pre>
 
-    <!-- Le styles -->
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="my-styles/andrewstyle.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-bottom: 40px;
-      }
+...<br />
+&lt;body&gt;<br />
+&lt;div id="message_bar"&gt;&lt;!-- content --&gt;&lt;/div&gt;<br />
+...
 
-      .hero-unit {
-        padding: 20px;
-        padding-right: 30px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
-    </style>
-    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+&lt;script type="text/javascript"&gt;
+$(document).ready(function() {
 
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  </head>
+      $('.modern').click(function(event){
+        event.preventDefault();
+        $('#message_bar').displayMessage({
+          message       : 'Error message',
+          background    : '#111111',
+          color         : '#FFFFFF',
+          speed         : 'fast',
+          skin          : 'custom',
+          position      : fixed,
+          autohide      : false,
+        });
+     });
+});
 
-  <body id="body">
+&lt;/script&gt;
 
-    <div id="fb-root"></div>
-      <script>
-        window.fbAsyncInit = function() {
-          FB.init({
-            appId      : '139637349490173',
-            status     : true, 
-            cookie     : true,
-            xfbml      : true,
-            oauth      : true,
-          });
-        };
-        (function(d){
-           var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
-           js = d.createElement('script'); js.id = id; js.async = true;
-           js.src = "//connect.facebook.net/en_US/all.js";
-           d.getElementsByTagName('head')[0].appendChild(js);
-         }(document));
-      </script>
+</pre>
+</p>
+</div>
 
-    <div class="navbar navbar-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">Zeal</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li><a href="browser">Browse</a></li>
-              <li><a href="planner">Plan</a></li>
-              <li><a href="create">Create</a></li>
-            </ul>
-            <p class="navbar-text pull-right"><a href="#login">Log in</a></p>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
+<div class="content round">
+<h3>Version Info:</h3>
+<p>
+Current version: 0.8<br />
+Compressed filesize: 2 050 bytes<br />
+License: MIT/GPL<br />
+</p>
+</div>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <!--
-        <div class="span3">
-          <p>Upcoming Activities</p>
-        </div><!--/span-->
-        <div class="span9">
-          <div class="hero-unit">
-            <h1>Welcome to Zeal!</h1>
-            <h2>Zeal takes the pain out of finding and scheduling activities.</h2>
-            <p>Zeal is the first of a new breed of preference-driven websites that know you and do work for you while you aren't logged in to help simplify your life. Zeal learns about what kinds of activities you enjoy and finds other like-minded people for you.  </p>
-            <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-          </div>
-        </div>
-        <div class="span3">
-            <div class ="hero-unit">
-                <input type="text" class="span12" placeholder="Username">
-                <input type="password" class="span12" placeholder="Password">
-                <a class="btn btn-primary">Log in &raquo;</a>
-                <div class="fb-login-button">Login with Facebook</div>
-            </div>
-        </div>
-          
+<div class="content round">
+<h3>Download:</h3>
+<p>
+<a href="http://www.andreyvoev.com/playground/jquery/messagebar/messagebar.zip" target="_blank">Download Link</a>
+</p>
+</div>
 
-      <hr>
+<div id="footer">
+</div>
+<script type="text/javascript">
 
-    </div><!--/.fluid-container-->
-    
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="bootstrap/js/jquery.js"></script>
-    <script src="bootstrap/js/bootstrap-transition.js"></script>
-    <script src="bootstrap/js/bootstrap-alert.js"></script>
-    <script src="bootstrap/js/bootstrap-modal.js"></script>
-    <script src="bootstrap/js/bootstrap-dropdown.js"></script>
-    <script src="bootstrap/js/bootstrap-scrollspy.js"></script>
-    <script src="bootstrap/js/bootstrap-tab.js"></script>
-    <script src="bootstrap/js/bootstrap-tooltip.js"></script>
-    <script src="bootstrap/js/bootstrap-popover.js"></script>
-    <script src="bootstrap/js/bootstrap-button.js"></script>
-    <script src="bootstrap/js/bootstrap-collapse.js"></script>
-    <script src="bootstrap/js/bootstrap-carousel.js"></script>
-    <script src="bootstrap/js/bootstrap-typeahead.js"></script>
+$(document).ready(function() {
+    $('.ff').click(function(event){
+        event.preventDefault();
+        $('#message_bar').displayMessage({
+          color : 'white',
+          skin : 'ff',
+          background: '#d3daed'
+        });
+     });
 
-  </body>
+     $('.custom').click(function(event){
+        event.preventDefault();
+        $('#message_bar').displayMessage({
+          color : 'white',
+          skin : 'custom',
+          background: '#2c6f15'
+        });
+     });
+
+     $('.vista').click(function(event){
+        event.preventDefault();
+        $('#message_bar').displayMessage({
+          color : 'white',
+          skin : 'vista'
+        });
+     });
+
+      $('.black').click(function(event){
+        event.preventDefault();
+        $('#message_bar').displayMessage({
+          color : 'white',
+          skin : 'black',
+          background: '#111111'
+        });
+     });
+
+     $('.fixed').click(function(event){
+        event.preventDefault();
+        $('#message_bar').displayMessage({
+          position: 'fixed',
+          skin : 'modern'
+        });
+     });
+
+     $('.relative').click(function(event){
+        event.preventDefault();
+        $('#message_bar').displayMessage({
+          position: 'relative',
+          skin : 'modern'
+        });
+     });
+
+     $('.absolute').click(function(event){
+        event.preventDefault();
+        $('#message_bar').displayMessage({
+          position: 'absolute',
+          skin : 'modern'
+        });
+     });
+
+     $('.ajax').click(function(event){
+        event.preventDefault();
+             $('#result').load('ajax.php', function() {
+                $('#message_bar').displayMessage({
+                  color : 'white',
+                  skin : 'modern',
+                  message : 'Load was performed.'
+                });
+            });
+     });
+});
+</script>
+</body>
 </html>
