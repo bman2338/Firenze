@@ -275,12 +275,11 @@ $(document).ready(function(){
           <a class="brand" href="index.html"><img src="img/logo.png" style="height:20px;"></a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="browser">Browse</a></li>
-              <li><a href="demo.html" >Search</a></li>
-              <li><a href="planner">Plan</a></li>
-              <li><a href="create">Create</a></li>
+              <li class="active"><a href="index.html">Browse</a></li>
+              <li><a href="search.html" >Search</a></li>
+              <li><a href="create.html">Create</a></li>
               <li><input type="text" class="input-medium search-query" style="margin-top:5px;  margin-left:90px; width:350px !important;" placeholder="Search for something to do" ></li>
-	   			<li><button class="btn" style="margin-left:20px;"><a style="color:black;" href="demo.html">Search</a></button></li>
+	   			<li><button class="btn" style="margin-left:20px;"><a style="color:black;" href="search.html">Search</a></button></li>
            
             </ul>
           </div>
