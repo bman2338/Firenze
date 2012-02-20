@@ -1,0 +1,35 @@
+Jenna has been a Zeal user for about a year.
+Last week, she moved across the country to Washington for a great job opportunity.
+
+Jenna enjoys fine dining, performing arts, and team sports, but she has been having a hard time finding other like-minded people in Redmond.
+Luckily, Zeal knows her interests and has suggested several nearby events where she can make new friends while doing an activity that she loves.
+
+Event categories can be filtered based on several different subcategories.
+
+All of the events can be sorted based on criteria such as price and rating.
+
+Jenna's cousin will be visiting next week and she wants to find somewhere to eat that they will both enjoy,
+So she uses the friendtelligence system, which updates the page with events that are recommended for both Jenna and her cousin.
+
+Jenna spots an event that she thinks they'll both enjoy and takes a look at the detailed information.
+
+She isn't sure if her cousin will like it, so she bookmarks the event by clicking the boost button to show to him later.
+If one of Jenna's friends also boosts the event, they will both be notified.
+
+One of the other events reminds Jenna that she wants to throw a house-warming party and invite all of her new co-workers
+The problem is, she doesn't know when everyone will be free.
+
+So she heads to the Create Event page which helps users schedule both public and 
+private events by finding the date, time, and location that works best for all the attendees.
+
+Zeal users can create one time events for birthday parties and movie outings.
+Or recurring events for weekly pickup games and epic Dungeons & Dragons campaigns.
+
+Jenna skips the event time box because she doesn't know the best time to hold her party.
+
+And that's the great thing about Zeal, it fills in the blanks.
+Zeal will find the best time for Jenna's party by comparing all of her co-worker's schedules, then it will create an event and handle all the invitations.
+
+Similarly, if you are an experienced Dungeon Master and want to start a campaign, but you don't know who to play with or when to play
+Just create a public event and Zeal will find a group of players who have free time when you do.
+

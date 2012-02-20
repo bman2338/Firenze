@@ -176,12 +176,13 @@
           <a class="brand" href="index.html"><img src="img/logo.png" style="margin-top:0px !important; margin-left:0px !important;width:62px !Important; height:20px !Important;"></a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li><a href="index.html">Browse</a></li>
-              <li class="active"><a href="search.html" >Search</a></li>
-              <li><a href="create.html">Create</a></li>
+              <li><a href="browser">Browse</a></li>
+              <li class="active"><a href="demo.html" >Search</a></li>
+              <li><a href="planner">Plan</a></li>
+              <li><a href="create">Create</a></li>
               
               <li><input type="text" class="input-medium search-query" style="margin-top:5px;  margin-left:90px; width:350px !important;" placeholder="Search for something to do" ></li>
-	   			<li><button class="btn" style="margin-left:20px;"><a style="color:black;" href="search.html">Search</a></button></li>
+	   			<li><button class="btn" style="margin-left:20px;"><a style="color:black;" href="demo.html">Search</a></button></li>
            
             </ul>
           </div>

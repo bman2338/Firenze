@@ -1,0 +1,28 @@
+<start on desktop>
+Dan is an undergrad student at Cornell University.
+He is an avid foodie and would love to find a group of friends who enjoy the finer side of dining.
+
+<open up browser>
+He knows that he has free time every Saturday evening to try new restaurants, 
+but he doesn't know how to find new restaurants that he would enjoy.
+
+<Go to bing>
+So Dan turns to the internet for help.
+
+<search for "fine dining group at cornell">
+A search on BING brings him to ZEAL where several fine dining events are listed in the Ithaca area.
+
+<click on event>
+One of the events catches his eye.
+He examines the event details and decides that he'd like to attend, so he adds the event to his Zeal schedule.
+Since it is his first time using Zeal he is prompted to log in through facebook or create a new account.
+
+<Click log in with facebook>
+Dan logs in with his facebook account and is taken to the event page for the dining event that he just added.
+This page allows users to have discussions about the event and organize invitations and atendees.
+
+Now that Dan has singed up for the event, it is synced to his favorite calendar app.
+
+<two days later...>
+Two days after his scheduled event, Dan gets an email from ZEAL prompting with a link to rate the event.
+ZEAL uses these ratings to improve future event suggestions.

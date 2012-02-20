@@ -61,7 +61,54 @@
 <link rel="stylesheet" type="text/css" href="message/skins/vista/skin.css" />
 
     <script type="text/javascript">
+    	
+    		// Array Remove - By John Resig (MIT Licensed)
+					Array.prototype.remove = function(from, to) {
+						var rest = this.slice((to || from) + 1 || this.length);
+						this.length = from < 0 ? this.length + from : from;
+						return this.push.apply(this, rest);
+					};
+					
+				jQuery.fn.outer = function() {
+					return $( $('<div></div>').html(this.clone()) ).html();
+					}
+					
+				function jumbleall()
+				{
+					 
+					 $('.row').each(function (index, value)
+						{
+						 var allImgs =  $(this).find('img');
+						 allImgs = allImgs.splice(1,allImgs.length);
+						 
+						 var allCaptions =  $(this).find('.caption-wrapper');
+						 var captionsCopy = new Array();
+						 var copy = new Array();
+						 for (i=0;i<=allImgs.length;i++)
+							{
+								copy[i] = $(allImgs[i]).outer();
+								captionsCopy[i] = $(allCaptions[i]).outer();
+							}
+						 var nums = new Array();
+						 for (i=0;i<=allImgs.length;i++)
+							{
+								nums[i]=i;
+							}
+							for (i=0;i<=allImgs.length;i++)
+							{
+								var randomnumber=Math.floor(Math.random()*nums.length);
+								j = nums[randomnumber];
+								nums.remove(randomnumber);
+			
+								$(allImgs[i]).replaceWith($(copy[j]));
+								$(allCaptions[i]).replaceWith($(captionsCopy[j]));
+							}
+						});
+					}
+			
     $(function(){
+    		
+    		
         $('.slide-out-div').tabSlideOut({
             tabHandle: '.handle',                     //class of the element that will become your tab
             pathToTabImage: 'images/contact_tab.gif', //path to the image for the tab //Optionally can be set using css
@@ -74,9 +121,8 @@
             leftPos: '20px',                          //position from left/ use if tabLocation is bottom or top
             fixedPosition: false                      //options: true makes it stick(fixed position) on scroll
         });
+         
         
-
-
     });
 
     </script>
@@ -146,6 +192,7 @@ $(document).ready(function(){
 });
 	
 	
+	
 	 var a = $('#query').autocomplete({ 
     serviceUrl:'autocomplete.ashx',
     minChars:2, 
@@ -157,13 +204,21 @@ $(document).ready(function(){
     params: { country:'Yes' }, //aditional parameters
     noCache: false, //default is false, set to true to disable caching
     // callback function:
-    onSelect: function(value, data){ $("#grouplist").append("<br/><a>" + value + "</a>"); },
+    onSelect: function(value, data){ 
+    $("#grouplist").append("<br/><a>" + value + "</a>");
+    jumbleall();
+    
+
+
+
+    },
     // local autosugest options:
     lookup: ['Peter K.', 'John W.', 'Hans Z.', 'April A.', 'Lindsey L.','Brett L'] //local lookup values 
   });
   
 	// simple jRating call, fucking hack
 	$("img").hover(
+	
 	function()
 	{
 		$(".rating").jRating({
@@ -178,7 +233,7 @@ $(document).ready(function(){
           color         : '#FFFFFF',
           speed         : 'fast',
           skin          : 'plain',
-          position      : 'absolute',
+          position      : 'relative',
           autohide      : false,
         });
      });
@@ -192,6 +247,7 @@ $(document).ready(function(){
 </script>
 
 <style>
+
 			/* Necessary CSS */
 		.slider    { overflow:hidden; position:relative;  }
 		.slider ul { margin:0; padding:0; }
@@ -217,20 +273,20 @@ $(document).ready(function(){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="index.html">Zeal</a>
+          <a class="brand" href="index.html"><img src="img/logo.png" style="height:20px;"></a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Browse</a></li>
+              <li class="active"><a href="browser">Browse</a></li>
+              <li><a href="demo.html" >Search</a></li>
               <li><a href="planner">Plan</a></li>
               <li><a href="create">Create</a></li>
-              <li><input type="text" class="input-medium search-query" style="margin-top:5px; margin-left:90px; width:350px !important;" placeholder="Search for something to do" ></li>
-	   <li><button class="btn" style="margin-left:20px;"><a href="demo.html">Search</a></button></li>
+              <li><input type="text" class="input-medium search-query" style="margin-top:5px;  margin-left:90px; width:350px !important;" placeholder="Search for something to do" ></li>
+	   			<li><button class="btn" style="margin-left:20px;"><a style="color:black;" href="demo.html">Search</a></button></li>
            
             </ul>
           </div>
           <div class="navbar-collapse pull-right">
-          <div><a class="btn btn-small" href="#"><i class="icon-cog"></i> Settings</a></div>
-          </div>
+           </div>
           <!--/.nav-collapse -->
         </div>
       </div>
@@ -242,17 +298,23 @@ $(document).ready(function(){
 	<br/>
 	<br/>
 		<ul class="nav nav-tabs">
-          <li class="active"><a href="#A" data-toggle="tab">By Category</a></li>
-          <li><a href="#B" data-toggle="tab">By Crew</a></li>
-          <li><a href="#C" data-toggle="tab">By Something Else...</a></li>
+					<h3>Prioritize by...</h3>
+          <li class="active"><a href="#A" data-toggle="tab">Just for you</a></li>
+          <li><a href="#C" data-toggle="tab">Time Until Event</a></li>
+          <li><a href="#B" data-toggle="tab">Rating</a></li>
+          <li><a href="#C" data-toggle="tab">Distance</a></li>
+          <li><a href="#C" data-toggle="tab">Price H to L</a></li>
+          <li><a href="#C" data-toggle="tab">Price L to H</a></li>
+          
         	</ul>
   <h2> Fine Dining </h2>
-	<div class="row">
+	<div id="finedining" class="row">
 			<div class="span2">
 			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Thai</div>
 			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Italian</div>
 			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; French</div>
 			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Greek</div>
+			 <a style='margin-left:21px;'>More...</a>
 			
 			</div>
     	<div class="arrow-container-left controls" style="margin-left:180px; z-index:5 !important;">
@@ -261,12 +323,12 @@ $(document).ready(function(){
     	<div id="slider2" class="span10 slider">
 			<ul>
 				
-				<li rel="popover" data-content="Do you desire the best in <b>Italian</b> cusine. Then look no further, Mona Lisa's is the place for you. Be sure to order from their signature wine collection. <br/> <div class='popup-bottom-divider'></div> <b>People interested in going:</b> <a>Meg R.</a> </br> <b>End's in:</b> 16h 32m </br> <b>Estimated Duration:</b> 3 hours</br> <b>Rating for you:</b> <div class='rating' id='8_2'></div> <div class='popup-bottom-divider'></div><div style='margin-top:10px; margin-left:15px; ' > <div class='btn-group' >
-  <a class='btn' href='#'> Add>>  </a>
-  <a class='btn' id='boost' href='#'> Boost>></a>
-  <a class='btn' href='#'>Suggest>></a>
-</div>
-" data-original-title="Dinner for 2 at Mona Lisa's <div class='subtext-block'><div class='subtext-left'> <a style='color:green;'>Deal</a> by <a>Mona Lisa Restaraunt</a>	</div><div class='subtext-right'> </div></div>"><img src="img/dining/1.jpg" height="139" width="139" class="captify" rel="capt1"  alt="" /></li>
+				<li rel="popover"  data-content="Do you desire the best in <b>Italian</b> cusine. Then look no further, Mona Lisa's is the place for you. Be sure to order from their signature wine collection. <br/> <div class='popup-bottom-divider'></div> <b>People interested in going:</b> <a>Meg R.</a> </br> <b>End's in:</b> 16h 32m </br> <b>Estimated Duration:</b> 3 hours</br> <b>Rating for you:</b> <div class='rating' id='8_2'></div> <div class='popup-bottom-divider'></div><div style='margin-top:10px; margin-left:15px; ' > <div class='btn-group' >
+				<a class='btn' data-toggle='modal' style='color:#0196E3 !important;' href='#myModal'> Add>>  </a>
+				<a class='btn' style='color:#0196E3 !important;' id='boost' href='#'> Boost>></a>
+				<a class='btn' style='color:#0196E3 !important;' href='#'>Suggest>></a>
+				</div>
+				" data-original-title="Dinner for 2 at Mona Lisa's <div class='subtext-block'><div class='subtext-left'> <a style='color:green;'>Deal</a> by <a>Mona Lisa Restaraunt</a>	</div><div class='subtext-right'> </div></div>"><img src="img/dining/1.jpg" height="139" width="139" class="captify" rel="capt1"  alt="" /></li>
 				<li rel="popover" data-content="And here's some amazing content. It's very engaging. right? <b> Sailing </b> is sweet. <br/><br/> <b>4:30-6:30</b> </br></br> <b>People interested in Mona Lisa's:</b> Meg R. </br> <b>Who's Going:</b> <a>Alice M.</a>, <a>Mike D</a>, <a>see more</a>" data-original-title="A Sweet Sample Title"><img src="img/dining/2.jpg" height="139" width="139" class="captify" rel="capt2" alt="" /></li>
 				<li><img src="img/dining/4.jpg" height="139" width="139" class="captify" rel="capt3" alt="" /></li>
 				<li><img src="img/dining/5.jpg" height="139" width="139" class="captify" rel="capt4" alt="" /></li>
@@ -286,12 +348,13 @@ $(document).ready(function(){
   </div>
   
 <h2> Arts </h2>
-	<div class="row">
+	<div id="arts" class="row">
     	<div class="span2">
-    	<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Thai</div>
-			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Italian</div>
-			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; French</div>
-			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Greek</div>
+    	<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Dancing</div>
+			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Theater</div>
+			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Galleries</div>
+			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Concerts</div>
+			<a style='margin-left:21px;'>More...</a>
 			
     	</div>
     	<div class="arrow-container-left controls" style="margin-left:180px; z-index:5 !important;">
@@ -309,7 +372,6 @@ $(document).ready(function(){
 				<li><img src="img/arts/8.jpg" height="139" width="139" class="captify" rel="capt17" alt="" /></li>
 				<li><img src="img/arts/9.jpg" height="139" width="139" class="captify" rel="capt18" alt="" /></li>
 				<li><img src="img/arts/10.jpg" height="139" width="139" class="captify" rel="capt19" alt="" /></li>
-				<li><img src="img/arts/11.jpg" height="139" width="139" class="captify" rel="capt20" alt="" /></li>
 			</ul>	
 			</div>
 			<div class="arrow-container-right span1 controls">
@@ -320,12 +382,13 @@ $(document).ready(function(){
   </div>
   
   <h2> Watch Sports </h2>
-	<div class="row">
+	<div id="watchsports" class="row">
     	<div class="span2">
-    	<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Thai</div>
-			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Italian</div>
-			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; French</div>
-			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Greek</div>
+    	<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Live Games</div>
+			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Sports Bar</div>
+			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; College</div>
+			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Minor League</div>
+			<a style='margin-left:21px;'>More...</a>
 			
     	</div>
     	<div class="arrow-container-left controls" style="margin-left:180px; z-index:5 !important;">
@@ -354,12 +417,16 @@ $(document).ready(function(){
   
   <h2>Outdoors</h2>
  
-	<div class="row">
+	<div id="outdoors" class="row">
 			
-    	<div class="span2"></div>
-    	<div class="arrow-container-left controls" style="margin-left:180px; z-index:5 !important;">
-					<div href="#" class="prev-slide arrow-left"></div>
-			</div>
+    	<div class="span2">
+    	<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Live Games</div>
+			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Sports Bar</div>
+			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; College</div>
+			<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; Minor League</div>
+			<a style='margin-left:21px;'>More...</a>
+			
+    	</div>
 		  
     	<div id="slider3" class="span10 slider">
 			<ul>
@@ -393,36 +460,37 @@ $(document).ready(function(){
 		<div id="capt1"> Dinner for 2 at Mona Lisa's</div>
   	<div id="capt2"> Wine and Desert Tasting</div>
     <div id="capt3"> Burrito Blowout</div>
-    <div id="capt4"> Sample Title </div>
-    <div id="capt5">  Sample Title</div>
-    <div id="capt6">  Sample Title</div>
-    <div id="capt7">  Sample Title</div>
-    <div id="capt8">  Sample Title</div>
-    <div id="capt9">  Sample Title</div>
-    <div id="capt10">  Sample Title</div>
+    <div id="capt4"> Steak on Guac </div>
+    <div id="capt5"> Raynor's Lounge</div>
+    <div id="capt6"> Mama Mia's</div>
+    <div id="capt7"> Seafood at Sunset</div>
+    <div id="capt8"> Fillet o Fish </div>
+    <div id="capt9"> Sushi Samba</div>
+    <div id="capt10"> Noodle Nut</div>
+   
     
-		<div id="capt11">  Sample Title<i class="icon-indent icon-white icon-ok"></i></div>
-  	<div id="capt12">  Sample Title<i class="icon-indent icon-white icon-exclamation-sign"></div>
-    <div id="capt13">  Sample Title<i class="icon-indent icon-white icon-remove"></div>
-    <div id="capt14">  Sample Title</div>
-    <div id="capt15">  Sample Title</div>
-    <div id="capt16">  Sample Title</div>
-    <div id="capt17">  Sample Title</div>
-    <div id="capt18">  Sample Title</div>
-    <div id="capt19">  Sample Title</div>
-    <div id="capt20">  Sample Title</div>
+		<div id="capt11">  Sveda Bogachev in Concert</div>
+  	<div id="capt12">  Ancient Egypt Exhibit</div>
+    <div id="capt13">  Salsa Lessons</div>
+    <div id="capt14">  Architecture Exhibit</div>
+    <div id="capt15">  Violin Concert</div>
+    <div id="capt16">  Taming of the Shrew</div>
+    <div id="capt17">  Boomfest</div>
+    <div id="capt18">  John Williams in Concert</div>
+    <div id="capt19">  John Williams in Concert</div>
+    
     
     <!-- metadata about events -->
-		<div id="capt21">  Sample Title<i class="icon-indent icon-white icon-ok"></i></div>
-  	<div id="capt22">  Sample Title<i class="icon-indent icon-white icon-exclamation-sign"></div>
-    <div id="capt23">  Sample Title<i class="icon-indent icon-white icon-remove"></div>
-    <div id="capt24">  Sample Title</div>
-    <div id="capt25">  Sample Title</div>
-    <div id="capt26">  Sample Title</div>
+		<div id="capt21">  MU vs France</div>
+  	<div id="capt22">  Nicks vs Celtics</div>
+    <div id="capt23">  Cornell vs Harvard</div>
+    <div id="capt24">  Cornell Alum Flag Football in Central Park</div>
+    <div id="capt25">  Male Groping</div>
+    <div id="capt26">  Flyers vs Who Cares</div>
     <div id="capt27">  Sample Title</div>
     <div id="capt28">  Sample Title</div>
     <div id="capt29">  Sample Title</div>
-    <div id="capt30">  Sample Title</div>
+    
     
 		<div id="capt31">  Sample Title<i class="icon-indent icon-white icon-ok"></i></div>
   	<div id="capt32">  Sample Title<i class="icon-indent icon-white icon-exclamation-sign"></div>
@@ -433,7 +501,6 @@ $(document).ready(function(){
     <div id="capt37">  Sample Title</div>
     <div id="capt38">  Sample Title</div>
     <div id="capt39">  Sample Title</div>
-    <div id="capt40">  Sample Title</div>
     
     	<div class="slide-out-div"  style="z-index: 99 !important; position: fixed !important;">
             <a class="handle" href="http://link-for-non-js-users.html">Content</a>
@@ -445,6 +512,73 @@ $(document).ready(function(){
             <a>Josh F.</a> </p>
 			</div>
     
-    
+     <div id="myModal" data-backdrop="false"  class="modal hide" >
+							<div class="modal-header">
+							
+								<a class="close" data-dismiss="modal">x</a>
+								<h3>Dinner for Two At Mona Lisa's</h3>
+							</div>
+							<div class="modal-body">
+								<h4>These friends would probably want to come along...</h4>
+								<div class="control-group">
+            <label class="control-label" for="multiSelect">Select Friends</label>
+            <div class="controls">
+              <select multiple="multiple" style="width:280px; height:200px;" id="multiSelect">
+                <option>Jake R</option>
+                <option>Ian C</option>
+                <option>Sandra B </option>
+                <option>Jennifer L</option>
+                <option>Whitney H</option>
+              </select>
+              
+              
+              
+              
+	      		<div> 
+            	<a id="signup" onclick="javascript: 
+            	
+            	$('.modal-body').slideUp('fast',function() {
+								// Animation complete.
+								$('.modal-body').html('<div style=\'height:200px\'> <h4>Sign up for Zeal now.</h4></br><input type=\'text\' class=\'span\' placeholder=\'Enter Your Email\'><span class=\'help-inline\'>New User Email</span></br><input type=\'text\' class=\'span3\' placeholder=\'Password\'><span class=\'help-inline\'>New User Password</span></br></br><div style=\'font-size:120; margin-left:100px;\'>OR</div></br> <a href=\'event.html\'><img style=\'margin-top:00px !important; margin-left:10px !important;width:200px !important; height:20px !important; \' src=\'http://www.anothermag.com/images/interface/login-facebook-button.png\' href=\'event.html\'></a></div>');
+								$('.modal-body').slideDown('fast');
+							});
+							" class="btn btn-primary btn-small">Add Event</a>
+						</div>
+            </div>
+          </div>
+							</div>
+							
+						</div>
+							
+							
+	<div id="signupModal" class="modal hide" >
+							<div class="modal-header" id="firstmodal">
+								<a class="close" data-dismiss="modal">×</a>
+								<h3>Dinner for Two At Mona Lisa's</h3>
+							</div>
+							<div class="modal-body">
+								<h4>These friends would probably want to come along...</h4>
+								<div class="control-group">
+            <label class="control-label" for="multiSelect">Select Friends</label>
+            <div class="controls">
+              <select multiple="multiple" style="width:280px; height:200px;" id="multiSelect">
+                <option>Jake R</option>
+                <option>Ian C</option>
+                <option>Sandra B </option>
+                <option>Jennifer L</option>
+                <option>Whitney H</option>
+              </select>
+              
+              
+              
+              
+	      		<div> 
+            	<a href="event.html" class="btn btn-primary btn-small">Add Event</a>
+						</div>
+            </div>
+          	</div>
+						</div>
+							
+						</div>
 	</body>
 </html>

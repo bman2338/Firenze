@@ -16,6 +16,12 @@
 <link type="text/css" href="jquery/css/ui/ui.css" rel="stylesheet" />	
 <script type="text/javascript" src="jquery/js/min.js"></script>
 
+
+	<!-- jrating -->
+	<script type="text/javascript" src="jrate/jquery/jRating.jquery.js"></script>
+	<!-- CSS file -->
+	<link rel="stylesheet" type="text/css" href="jrate/jquery/jRating.jquery.css" media="screen" />
+
 <!--
   BS:http://twitter.github.com/bootstrap/
 -->
@@ -40,6 +46,11 @@
             leftPos: '20px',                          //position from left/ use if tabLocation is bottom or top
             fixedPosition: false                      //options: true makes it stick(fixed position) on scroll
         });
+        
+        $("#signup").click(function() {
+					alert("test");
+				
+				});
 
     });
 
@@ -61,6 +72,8 @@
 
 <script type="text/javascript">
 			$(function(){
+		
+			
 			
 			//datepicker
 			$("#datepicker").datepicker();
@@ -80,6 +93,31 @@
 				      
   //Captify:text overlays
 		$(document).ready(function(){
+		
+			// simple jRating call, fucking hack
+					$("img").hover(
+					function()
+					{
+						
+						$(".rating").jRating({
+						showRateInfo:false
+						});
+						
+						 $('#boost').click(function(event){
+						
+								
+								$('#message_bar').displayMessage({
+									message       : "You've boosted <b>Dinner for 2 at Mona Lisa's!</b> Click <a style='color:orange'><u>here</u></a> to manage your boosts.",
+									background    : '#111111',
+									color         : '#FFFFFF',
+									speed         : 'fast',
+									skin          : 'plain',
+									position      : 'relative',
+									autohide      : false,
+							});
+					 });
+		
+		});
 			$('.captify').captify({
 				// all of these options are... optional
 				// ---
@@ -102,7 +140,7 @@
 				// caption span % of the image
 				spanWidth: '86%'
 			});
-		});
+		
 
 					//add friends onchange
 				$('#search-friends').change(function() {
@@ -116,18 +154,9 @@
 					step:1
 				});
 				});
-				
 
-				$('.onchange').slider({
-					min:1,
-					max:5,
-					step:1
-				});
+	});
 				
-			
-				
-	
-      
 		</script>
 
 
@@ -135,36 +164,120 @@
 
 <body>
 
- <div class="navbar navbar-fixed-top" style="z-index:1">
-      <div class="navbar-inner">
+		
+	 <div class="navbar navbar-fixed-top" style="z-index:1">
+      <div class="navbar-inner"  style="height:40px !important;">
         <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="index.html">Zeal</a>
+          <a class="brand" href="index.html"><img src="img/logo.png" style="margin-top:0px !important; margin-left:0px !important;width:62px !Important; height:20px !Important;"></a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li ><a href="browser">Browse</a></li>
+              <li><a href="browser">Browse</a></li>
+              <li class="active"><a href="demo.html" >Search</a></li>
               <li><a href="planner">Plan</a></li>
               <li><a href="create">Create</a></li>
-              <li class="active"><a href="#contact">Search</a></li>
-              <li><input type="text" class="input-medium search-query" style="margin-top:5px; margin-left:90px; width:350px !important;" placeholder="Search for something to do" ></li>
-              <li><button type="submit" class="btn" style="margin-left:20px;">Search</button></li>
+              
+              <li><input type="text" class="input-medium search-query" style="margin-top:5px;  margin-left:90px; width:350px !important;" placeholder="Search for something to do" ></li>
+	   			<li><button class="btn" style="margin-left:20px;"><a style="color:black;" href="demo.html">Search</a></button></li>
+           
             </ul>
           </div>
           <div class="navbar-collapse pull-right">
-          <div><a class="btn btn-small" href="#"><i class="icon-cog"></i> Settings</a></div>
-          </div>
+          
           <!--/.nav-collapse -->
         </div>
       </div>
-      
     </div>
 
+
 <div class="container">
- 				
+ <div id="myModal" data-backdrop="false"  class="modal hide" >
+							<div class="modal-header">
+							
+								<a class="close" data-dismiss="modal">×</a>
+								<h3>Dinner for Two At Mona Lisa's</h3>
+							</div>
+							<div class="modal-body">
+								<h4>These friends would probably want to come along...</h4>
+								<div class="control-group">
+            <label class="control-label" for="multiSelect">Select Friends</label>
+            <div class="controls">
+              <select multiple="multiple" style="width:280px; height:200px;" id="multiSelect">
+                <option>Jake R</option>
+                <option>Ian C</option>
+                <option>Sandra B </option>
+                <option>Jennifer L</option>
+                <option>Whitney H</option>
+              </select>
+              
+              
+              
+              
+	      		<div> 
+            	<a id="signup" onclick="javascript: 
+            	
+            	$('.modal-body').slideUp('fast',function() {
+								// Animation complete.
+								$('.modal-body').html('<div style=\'height:200px\'> <h4>Sign up for Zeal now.</h4></br><input type=\'text\' class=\'span\' placeholder=\'Enter Your Email\'><span class=\'help-inline\'>New User Email</span></br><input type=\'text\' class=\'span3\' placeholder=\'Password\'><span class=\'help-inline\'>New User Password</span></br></br><div style=\'font-size:120; margin-left:100px;\'>OR</div></br> <a href=\'event.html\'><img style=\'margin-top:00px !important; margin-left:10px !important;width:200px !important; height:20px !important; \' src=\'http://www.anothermag.com/images/interface/login-facebook-button.png\' href=\'event.html\'></a></div>');
+								$('.modal-body').slideDown('fast');
+							});
+							" class="btn btn-primary btn-small">Add Event</a>
+						</div>
+            </div>
+          </div>
+							</div>
+							
+						</div>
+							
+							
+	<div id="signupModal" class="modal hide" >
+							<div class="modal-header" id="firstmodal">
+								<a class="close" data-dismiss="modal">×</a>
+								<h3>Dinner for Two At Mona Lisa's</h3>
+							</div>
+							<div class="modal-body">
+								<h4>These friends would probably want to come along...</h4>
+								<div class="control-group">
+            <label class="control-label" for="multiSelect">Select Friends</label>
+            <div class="controls">
+              <select multiple="multiple" style="width:280px; height:200px;" id="multiSelect">
+                <option>Jake R</option>
+                <option>Ian C</option>
+                <option>Sandra B </option>
+                <option>Jennifer L</option>
+                <option>Whitney H</option>
+              </select>
+              
+              
+              
+              
+	      		<div> 
+            	<a href="event.html" class="btn btn-primary btn-small">Add Event</a>
+						</div>
+            </div>
+          	</div>
+						</div>
+							
+						</div>
+ <!-- FB SHIT -->
+ 
+  <div id="fb-root"></div>
+      <script>
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+      </script>
+	<div class="fb-like"></div>
+ 
+ 
  <div class="searchResults span12">
  <h1> Search Results</h1>
  </div>
@@ -204,20 +317,12 @@
 		<div class="option"><input id="97_0" class="checkindent" name="searchParam" value="97" type="checkbox" checked>&nbsp; $$$$</div>
 		</div>
 	
-	<div class="filter-margin">
-	<b>My Preference Weight</b>
-	<div id="slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"></div>
- 	</div>
- 	
- 	<div class="filter-margin">
-	<b>My Network's Preference</b>
-	<div id="slider2" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"></div>
- 	</div>
+	
  	
  	</div>
  	
  	<div class="span3"></div>
- 	<div class="span9" style="font-size:20px; margin-top:10px; display:block; float:left;">Add an existing event</div>
+ 	<div class="span9" style="font-size:24px; margin-top:10px; display:block; float:left;">Add an existing event</div>
 	<div class="sponsorListHolder span9">
 					
 		<h2 style="margin-top:100px; display:block; float:left;"></h2>
@@ -226,9 +331,32 @@
        
 				<div class="sponsor" title="Click to flip" alt="caption text">
 					<div class="sponsorFlip">
-						<img rel="popover" data-content="And here's some amazing content. It's very engaging. right? <b> Sailing </b> is sweet. <br/> <div class='popup-bottom-divider'></div></br>more text <b>4:30-6:30</b> </br></br> <b>Creator</b>: Bob Smith </br> <b>Who's Going:</b>  <a>Mike D</a>, <a>Alice M.</a>,<a>see more</a> </br> Rating for you: <div class='rating' id='8_2'></div>" data-original-title="A Sweet Sample Title <div class='subtext-block'><div class='subtext-left'> Subtexttttt	</div><div class='subtext-right'> Some subtext. Some more subtext.</div></div>" class ="captify"	alt="Dinner for 2 at Mona Lisa's" src="img/dining/2.jpg" >
-					</div>
+						<li rel="popover" data-content="Do you desire the best in <b>Italian</b> cusine. Then look no further, Mona Lisa's is the place for you. Be sure to order from their signature wine collection. <br/> <div class='popup-bottom-divider'></div> <b>People interested in going:</b> <a>Meg R.</a> </br> <b>End's in:</b> 16h 32m </br> <b>Estimated Duration:</b> 3 hours</br> <b>Rating for you:</b> <div class='rating' id='8_2'></div> <div class='popup-bottom-divider'></div><div style='margin-top:10px; margin-left:15px; ' > <div class='btn-group' >
+							<a class='btn' data-toggle='modal' style='color:#0196E3;' href='#myModal'> Add>>  </a>
+							<a class='btn' id='boost' href='#'> Boost>></a>
+							<a class='btn' href='#'>Suggest>></a>
+							
+						</div>
+						" data-original-title="Dinner for 2 at Mona Lisa's <div class='subtext-block' style='font-size:64% !important;'><div class='subtext-left'> <a style='color:green; '>Deal</a> by <a>Mona Lisa Restaraunt</a>	</div><div class='subtext-right'> </div></div>"><img src="img/dining/4.jpg" height="139" width="139" class="captify" rel="capt1"  alt="" /></li>
+										</div>
+					<div id="capt1"> Dinner for 2 at Mona Lisa's</div>
+					<div class="sponsorData">
+						
+							
 					
+					</div>
+				</div>
+				<div class="sponsor" title="Click to flip" alt="caption text">
+					<div class="sponsorFlip">
+						<li rel="popover" data-content="Do you desire the best in <b>Italian</b> cusine. Then look no further, Mona Lisa's is the place for you. Be sure to order from their signature wine collection. <br/> <div class='popup-bottom-divider'></div> <b>People interested in going:</b> <a>Meg R.</a> </br> <b>End's in:</b> 16h 32m </br> <b>Estimated Duration:</b> 3 hours</br> <b>Rating for you:</b> <div class='rating' id='8_2'></div> <div class='popup-bottom-divider'></div><div style='margin-top:10px; margin-left:15px; ' > <div class='btn-group' >
+							<a class='btn' data-toggle='modal' style='color:#0196E3;' href='#myModal'> Add>>  </a>
+							<a class='btn' id='boost' href='#'> Boost>></a>
+							<a class='btn' href='#'>Suggest>></a>
+							
+						</div>
+						" data-original-title=" <div class='subtext-block' style='font-size:64% !important;'><div class='subtext-left'> <a style='color:green; '>Deal</a> by <a>Mona Lisa Restaraunt</a>	</div><div class='subtext-right'> </div></div>"><img src="img/dining/5.jpg" height="139" width="139" class="captify" rel="capt1"  alt="" /></li>
+										</div>
+					<div id="capt1"> Dinner for 2 at Mona Lisa's</div>
 					<div class="sponsorData">
 						<div class="sponsorDescription">
 							Dinner for two at Mona Lisa's
@@ -237,31 +365,98 @@
 							
 							
 							<a data-toggle="modal" href="#myModal" > Add to schedule >></a>
-							<div id="myModal" class="modal hide fade" >
-							<div class="modal-header">
-								<a class="close" data-dismiss="modal">×</a>
-								<h3>Modal Heading</h3>
-							</div>
-							<div class="modal-body">
-								<h4>These friends would probably want to come along...</h4>
-								<div class="control-group">
-            <label class="control-label" for="multiSelect">Select Friends</label>
-            <div class="controls">
-              <select multiple="multiple" style="width:280px; height:200px;" id="multiSelect">
-                <option>Jake R</option>
-                <option>Ian C</option>
-                <option>Sandra B </option>
-                <option>Jennifer L</option>
-                <option>Whitney H</option>
-              </select>
-	      <div> 
-            	<a href="event.html" class="btn btn-primary btn-small">Add Event</a>
-	</div>
-            </div>
-          </div>
-							</div>
+							
+						
+							</br>
+							<a> Bookmark >></a>
+							</br>
+							<a> Suggest >> </a>
 							
 						</div>
+					
+					</div>
+				</div>
+				<div class="sponsor" title="Click to flip" alt="caption text">
+					<div class="sponsorFlip">
+						<li rel="popover" data-content="Do you desire the best in <b>Italian</b> cusine. Then look no further, Mona Lisa's is the place for you. Be sure to order from their signature wine collection. <br/> <div class='popup-bottom-divider'></div> <b>People interested in going:</b> <a>Meg R.</a> </br> <b>End's in:</b> 16h 32m </br> <b>Estimated Duration:</b> 3 hours</br> <b>Rating for you:</b> <div class='rating' id='8_2'></div> <div class='popup-bottom-divider'></div><div style='margin-top:10px; margin-left:15px; ' > <div class='btn-group' >
+							<a class='btn' data-toggle='modal' style='color:#0196E3;' href='#myModal'> Add>>  </a>
+							<a class='btn' id='boost' href='#'> Boost>></a>
+							<a class='btn' href='#'>Suggest>></a>
+							
+						</div>
+						" data-original-title="Dinner for 2 at Mona Lisa's <div class='subtext-block' style='font-size:64% !important;'><div class='subtext-left'> <a style='color:green; '>Deal</a> by <a>Mona Lisa Restaraunt</a>	</div><div class='subtext-right'> </div></div>"><img src="img/dining/2.jpg" height="139" width="139" class="captify" rel="capt1"  alt="" /></li>
+										</div>
+					<div id="capt1"> Dinner for 2 at Mona Lisa's</div>
+					<div class="sponsorData">
+						<div class="sponsorDescription">
+							Dinner for two at Mona Lisa's
+							</br>
+							</br>
+							
+							
+							<a data-toggle="modal" href="#myModal" > Add to schedule >></a>
+							
+						
+							</br>
+							<a> Bookmark >></a>
+							</br>
+							<a> Suggest >> </a>
+							
+						</div>
+					
+					</div>
+				</div>
+				<div class="sponsor" title="Click to flip" alt="caption text">
+					<div class="sponsorFlip">
+						<li rel="popover" data-content="Do you desire the best in <b>Italian</b> cusine. Then look no further, Mona Lisa's is the place for you. Be sure to order from their signature wine collection. <br/> <div class='popup-bottom-divider'></div> <b>People interested in going:</b> <a>Meg R.</a> </br> <b>End's in:</b> 16h 32m </br> <b>Estimated Duration:</b> 3 hours</br> <b>Rating for you:</b> <div class='rating' id='8_2'></div> <div class='popup-bottom-divider'></div><div style='margin-top:10px; margin-left:15px; ' > <div class='btn-group' >
+							<a class='btn' data-toggle='modal' style='color:#0196E3;' href='#myModal'> Add>>  </a>
+							<a class='btn' id='boost' href='#'> Boost>></a>
+							<a class='btn' href='#'>Suggest>></a>
+							
+						</div>
+						" data-original-title="Dinner for 2 at Mona Lisa's <div class='subtext-block' style='font-size:64% !important;'><div class='subtext-left'> <a style='color:green; '>Deal</a> by <a>Mona Lisa Restaraunt</a>	</div><div class='subtext-right'> </div></div>"><img src="img/dining/6.jpg" height="139" width="139" class="captify" rel="capt1"  alt="" /></li>
+										</div>
+					<div id="capt1"> Dinner for 2 at Mona Lisa's</div>
+					<div class="sponsorData">
+						<div class="sponsorDescription">
+							Dinner for two at Mona Lisa's
+							</br>
+							</br>
+							
+							
+							<a data-toggle="modal" href="#myModal" > Add to schedule >></a>
+							
+						
+							</br>
+							<a> Bookmark >></a>
+							</br>
+							<a> Suggest >> </a>
+							
+						</div>
+					
+					</div>
+				</div>
+				<div class="sponsor" title="Click to flip" alt="caption text">
+					<div class="sponsorFlip">
+						<li rel="popover" data-content="Do you desire the best in <b>Italian</b> cusine. Then look no further, Mona Lisa's is the place for you. Be sure to order from their signature wine collection. <br/> <div class='popup-bottom-divider'></div> <b>People interested in going:</b> <a>Meg R.</a> </br> <b>End's in:</b> 16h 32m </br> <b>Estimated Duration:</b> 3 hours</br> <b>Rating for you:</b> <div class='rating' id='8_2'></div> <div class='popup-bottom-divider'></div><div style='margin-top:10px; margin-left:15px; ' > <div class='btn-group' >
+							<a class='btn' data-toggle='modal' style='color:#0196E3;' href='#myModal'> Add>>  </a>
+							<a class='btn' id='boost' href='#'> Boost>></a>
+							<a class='btn' href='#'>Suggest>></a>
+							
+						</div>
+						" data-original-title="Dinner for 2 at Mona Lisa's <div class='subtext-block' style='font-size:64% !important;'><div class='subtext-left'> <a style='color:green; '>Deal</a> by <a>Mona Lisa Restaraunt</a>	</div><div class='subtext-right'> </div></div>"><img src="img/dining/1.jpg" height="139" width="139" class="captify" rel="capt1"  alt="" /></li>
+										</div>
+					<div id="capt1"> Dinner for 2 at Mona Lisa's</div>
+					<div class="sponsorData">
+						<div class="sponsorDescription">
+							Dinner for two at Mona Lisa's
+							</br>
+							</br>
+							
+							
+							<a data-toggle="modal" href="#myModal" > Add to schedule >></a>
+							
+						
 							</br>
 							<a> Bookmark >></a>
 							</br>
@@ -273,151 +468,13 @@
 				</div>
 				
 				
-				<div class="sponsor" title="Click to flip">
-					<div class="sponsorFlip">
-						<img src="img/dining/1.jpg" height="" width="" alt="More about vimeo">
-					</div>
-					
-					<div class="sponsorData">
-						<div class="sponsorDescription">
-							A popular video-centric social networking site.
-						</div>
-						<div class="sponsorURL">
-							<a href="http://www.vimeo.com/">http://www.vimeo.com/</a>
-						</div>
-					</div>
-				</div>
-		
-				<div class="sponsor" title="Click to flip">
-					<div class="sponsorFlip">
-						<img src="img/dining/5.jpg" height="" width="">
-					</div>
-					
-					<div class="sponsorData">
-						<div class="sponsorDescription">
-							One of the top software companies of the world.
-						</div>
-						<div class="sponsorURL">
-							<a href="http://www.microsoft.com/">http://www.microsoft.com/</a>
-						</div>
-					</div>
-				</div>
 				
 				
-				<div class="sponsor" title="Click to flip">
-					<div class="sponsorFlip">
-						<img src="img/dining/4.jpg" height="" width="" >
-					</div>
-					
-					<div class="sponsorData">
-						<div class="sponsorDescription">
-							A global multibillion electronics and entertainment company 
-						</div>
-						<div class="sponsorURL">
-							<a href="http://www.sony.com/">http://www.sony.com/</a>
-						</div>
-					</div>
-				</div>
 				
-				
-				<div class="sponsor" title="Click to flip">
-					<div class="sponsorFlip">
-						<img src="img/dining/6.jpg" height="" width=""> 
-					</div>
-					
-					<div class="sponsorData">
-						<div class="sponsorDescription">
-							The company that redefined web search.
-						</div>
-						<div class="sponsorURL">
-							<a href="http://www.google.com/">http://www.google.com/</a>
-						</div>
-					</div>
-				</div>
-				
-				
-				<div class="sponsor" title="Click to flip">
-					<div class="sponsorFlip">
-						<img src="img/dining/7.jpg" height="139" width="139"> 
-					</div>
-					
-					<div class="sponsorData">
-						<div class="sponsorDescription">
-							The biggest networking and communications technology manufacturer.
-						</div>
-						<div class="sponsorURL">
-							<a href="http://www.cisco.com/">http://www.cisco.com/</a>
-						</div>
-					</div>
-				</div>
-				
-				
-				<div class="sponsor" title="Click to flip">
-					<div class="sponsorFlip">
-						<img src="img/dining/8.jpg" height="" width=""> 
-					</div>
-					
-					<div class="sponsorData">
-						<div class="sponsorDescription">
-							The most popular open source database engine.
-						</div>
-						<div class="sponsorURL">
-							<a href="http://www.mysql.com/">http://www.mysql.com/</a>
-						</div>
-					</div>
-				</div>
-				
-				
-				<div class="sponsor" title="Click to flip">
-					<div class="sponsorFlip">
-						<img src="img/dining/9.jpg" height="" width=""> 
-					</div>
-					
-					<div class="sponsorData">
-						<div class="sponsorDescription">
-							Imaging and optical technology manufacturer.
-						</div>
-						<div class="sponsorURL">
-							<a href="http://www.canon.com/">http://www.canon.com/</a>
-						</div>
-					</div>
-				</div>
-				
-				
-				<div class="sponsor" title="Click to flip">
-					<div class="sponsorFlip">
-						<img src="img/dining/10.jpg" height="" width=""> 
-					</div>
-					
-					<div class="sponsorData">
-						<div class="sponsorDescription">
-							One of the biggest computer manufacturers.
-						</div>
-						<div class="sponsorURL">
-							<a href="http://www.hp.com/">http://www.hp.com/</a>
-						</div>
-					</div>
-				</div>
-				
-				
-				<div class="sponsor" title="Click to flip">
-					<div class="sponsorFlip">
-						<img src="img/arts/1.jpg" height="" width=""> 
-					</div>
-					
-					<div class="sponsorData">
-						<div class="sponsorDescription">
-							The biggest social network in the world.
-						</div>
-						<div class="sponsorURL">
-							<a href="http://www.facebook.com/">http://www.facebook.com/</a>
-						</div>
-					</div>
-				</div>
-				<div class="span9" style="font-size:20px; margin-top:10px; margin-bottom:10px; margin-left:0px; display:block; float:left;">Or create an event at one of these places...</div>
+				<div class="span9" style="font-size:20px; margin-top:10px; margin-bottom:10px; margin-left:0px; display:block; float:left;">Or create an event with one of these places/activities...</div>
 					<div class="sponsor" title="Click to flip">
 					<div class="sponsorFlip">
-						<img src="img/arts/1.jpg" height="" width=""> 
+						<img src="img/dining/11.jpg" class="captify" rel="capt11" height="" width=""> 
 					</div>
 					
 					<div class="sponsorData">
@@ -431,7 +488,7 @@
 				</div>
 						<div class="sponsor" title="Click to flip">
 					<div class="sponsorFlip">
-						<img src="img/arts/1.jpg" height="" width=""> 
+						<img src="img/dining/10.jpg" class="captify" rel="capt12" height="" width=""> 
 					</div>
 					
 					<div class="sponsorData">
@@ -455,6 +512,12 @@
         	</div>
     	<div class="clear"></div>
     </div>
+    
     </div>
+    
+    
+						<div id="capt11">Restraurant 1</div>
+						<div id="capt12">Restraurant 2</div>
+						
 </body>
 </html>

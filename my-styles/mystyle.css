@@ -28,21 +28,25 @@ a
 .popover-title 
 {
 	
-	background:#E08518 !important;
+	
 	height:auto;
 }
 /*block to make the bg expand*/
 .subtext-block
 {
+
 	display:block;
 	padding-bottom:10px;
+	font-size:64% !important;
+	width:300px;
 }
 .subtext-left 
 {
 	vertical-align:text-bottom;
 	color:#3D3D3D;
-	width:45%;
-	font-size:68% !important;
+	width:65%;
+	
+	
 	display:inline-block;
 	
 }
